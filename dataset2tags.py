@@ -24,11 +24,13 @@ dataset2tags.printSchema()
 
 dataset2tags.count()
 
-dataset2tags.group("tag").show()
+dataset2tags.groupBy("tag").count().show()
 
 dataset2tags.createOrReplaceTempView('tags')
 
-sqlTags
+sqlTags = spark.sql("SELECT * FROM tags")
+
+sqlTags.show()
 #
 # dataset2tags.filter(dataset2tags['year']>=1983).show()
 #
