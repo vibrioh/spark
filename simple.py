@@ -2,12 +2,17 @@ import findspark
 findspark.init()
 from pyspark.sql import SparkSession
 from pyspark.sql import types
+from pyspark import SparkContext
+from pyspark.sql import SQLContext, HiveContext
+from pyspark.sql.readwriter import DataFrameReader
+
 
 
 spark = SparkSession \
     .builder \
     .appName("simple") \
-    .config("spark.som.config.option", "some-value") \
+    .config("spark.sql.warehouse.dir", "file:${system:user.dir}/spark-warehouse") \
+    .enableHiveSupport() \
     .getOrCreate()
 
 dataset1schema = types.StructType([
@@ -32,3 +37,20 @@ dataset1.filter(dataset1['year']>=1983).show()
 
 dataset1.select(dataset1['title'], dataset1['score'] * 10).show()
 
+dataset1.write.insertInto("dataset1", overwrite=True)
+
+
+dataset1.write.saveAsTable('dataset1s', mode='overwrite')
+
+sc = SparkContext(appName="simple")
+sqlContext = SQLContext(sc)
+hiveContext = HiveContext(sc)
+hiveContext.setConf("hive.exec.dynamic.partition", "false")
+hiveContext.setConf("spark.sql.orc.filterPushdown", "true")
+
+data = hiveContext.sql("SELECT * from dataset1").write.format("orc").mode(
+    "append").insertInto("dataset1")
+
+sc.stop()
+
+dataset1.write.parquet("hdfs://localhost:9000/user/vibrioh/simple")
