@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b6e891-9b45-4bbf-81fb-3a467a4daa77" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/commands.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spark-warehouse/airlines.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/spark.iml" afterPath="$PROJECT_DIR$/.idea/spark.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bitcoin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bitcoin.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple.py" afterPath="$PROJECT_DIR$/simple.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-warehouse/airlines.py" afterPath="$PROJECT_DIR$/spark-warehouse/airlines.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/simple.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
+              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
               <folding>
                 <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
                 <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
@@ -41,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/dataset2tags.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
               </folding>
@@ -52,22 +51,44 @@
       <file leaf-file-name="dataset3taxi.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spark-warehouse/dataset3taxi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="61" />
+            <state relative-caret-position="336">
+              <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="airlines.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="airlines.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spark-warehouse/airlines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="442">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <marker date="1506818592000" expanded="true" signature="2030:2059" ph="select ArrDe... airlines" />
-                <marker date="1506818592000" expanded="true" signature="2112:2141" ph="select DepDe... airlines" />
+                <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
+                <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bitcoin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bitcoin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="44" />
+              <folding>
+                <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bitcoin.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bitcoin.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="3" selection-end-column="258" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,8 +96,8 @@
       <file leaf-file-name="commands.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commands.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="497" lean-forward="true" selection-start-line="3" selection-start-column="497" selection-end-line="3" selection-end-column="570" />
               <folding />
             </state>
           </provider>
@@ -101,6 +122,7 @@
     <replaceStrings>
       <replace>dataset2</replace>
       <replace>dataset3taxi</replace>
+      <replace>,</replace>
       <replace>string</replace>
     </replaceStrings>
   </component>
@@ -115,6 +137,8 @@
         <option value="$PROJECT_DIR$/simple.py" />
         <option value="$PROJECT_DIR$/commands.sh" />
         <option value="$PROJECT_DIR$/spark-warehouse/airlines.py" />
+        <option value="$PROJECT_DIR$/bitcoin.py" />
+        <option value="$PROJECT_DIR$/bitcoin.txt" />
       </list>
     </option>
   </component>
@@ -195,7 +219,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6/bin/python3.6" />
     <property name="FullScreen" value="true" />
@@ -486,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506744453562</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="airlines">
+      <created>1506819602067</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1506819602067</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -523,7 +554,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dataset2tags" />
     <MESSAGE value="dataset3taxi" />
-    <option name="LAST_COMMIT_MESSAGE" value="dataset3taxi" />
+    <MESSAGE value="airlines" />
+    <option name="LAST_COMMIT_MESSAGE" value="airlines" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -564,8 +596,8 @@
         <state relative-caret-position="45">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
-            <marker date="1506818592000" expanded="true" signature="2030:2059" ph="select ArrDe... airlines" />
-            <marker date="1506818592000" expanded="true" signature="2112:2141" ph="select DepDe... airlines" />
+            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
+            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
           </folding>
         </state>
       </provider>
@@ -604,8 +636,8 @@
         <state relative-caret-position="537">
           <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
-            <marker date="1506818592000" expanded="true" signature="2030:2059" ph="select ArrDe... airlines" />
-            <marker date="1506818592000" expanded="true" signature="2112:2141" ph="select DepDe... airlines" />
+            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
+            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
           </folding>
         </state>
       </provider>
@@ -621,18 +653,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spark-warehouse/dataset3taxi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simple.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
+          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
           <folding>
             <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
             <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
@@ -643,29 +667,55 @@
     <entry file="file://$PROJECT_DIR$/dataset2tags.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.sh">
+    <entry file="file://$PROJECT_DIR$/spark-warehouse/airlines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
+            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spark-warehouse/dataset3taxi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spark-warehouse/airlines.py">
+    <entry file="file://$PROJECT_DIR$/bitcoin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="44" />
           <folding>
-            <marker date="1506818592000" expanded="true" signature="2030:2059" ph="select ArrDe... airlines" />
-            <marker date="1506818592000" expanded="true" signature="2112:2141" ph="select DepDe... airlines" />
+            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="497" lean-forward="true" selection-start-line="3" selection-start-column="497" selection-end-line="3" selection-end-column="570" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bitcoin.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="3" selection-end-column="258" />
+          <folding />
         </state>
       </provider>
     </entry>

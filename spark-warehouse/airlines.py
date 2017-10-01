@@ -47,6 +47,8 @@ airlines = spark.read.csv("/Users/vibrioh/Downloads/*.csv.bz2", header='True', s
 
 airlines.show()
 
+airlines.printSchema()
+
 airlines.filter(airlines['Year']<2007).show()
 
 airlines.write.parquet("hdfs://localhost:9000/user/vibrioh/airlines")
@@ -56,4 +58,5 @@ ArrDelay.describe().show()
 
 DepDelay = spark.sql("select DepDelay from airlines")
 DepDelay.describe().show()
+
 
