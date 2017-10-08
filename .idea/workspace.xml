@@ -2,9 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b6e891-9b45-4bbf-81fb-3a467a4daa77" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/get_data.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.synctex.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/_HW2_GUIDE.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/demo_ppt.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m.zip.1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/movies.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/explicit_recommendation-checkpoint.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.aux" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.out" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.tex" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exportToHTML/explicit_recommendation.ipynb.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/hw2_demo.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.ipynb_checkpoints/hw2_Q1_demo-checkpoint.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q1_demo.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_data_clean_text_vectorization_demo.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/scala/.ipynb_checkpoints/MovieRecommendations-checkpoint.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/scala/MovieRecommendations.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/ratings.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/users.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -543,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507420993051</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="explict ALS">
+      <created>1507437805551</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1507437805551</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -583,7 +615,8 @@
     <MESSAGE value="airlines" />
     <MESSAGE value="bitcoins" />
     <MESSAGE value="in folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="in folder" />
+    <MESSAGE value="explict ALS" />
+    <option name="LAST_COMMIT_MESSAGE" value="explict ALS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

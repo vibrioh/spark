@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Building\040a\040Movie\040Recommendation\040System\040with\040Spark\040MLlib}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Import\040required\040libraries}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Download/Unzip\040the\040MovieLens\0401M\040dataset\040from\040http://grouplens.org/datasets/movielens}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Read\040and\040Convert\040ratings\040data\040to\040a\040DataFrame}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Show\040the\040number\040of\040ratings\040in\040the\040dataset}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Show\040a\040sample\040of\040the\040Ratings\040DataFrame}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.6}{Show\040sample\040number\040of\040ratings\040per\040user}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.7}{Show\040the\040number\040of\040users\040in\040the\040dataset}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.8}{Split\040Ratings\040data\040into\040Training\040\(80\045\)\040and\040Test\040\(20\045\)\040datasets}{section.1}% 9
+\BOOKMARK [2][-]{subsection.1.9}{Show\040resulting\040Ratings\040dataset\040counts}{section.1}% 10
+\BOOKMARK [2][-]{subsection.1.10}{Build\040the\040recommendation\040model\040on\040the\040training\040data\040using\040ALS}{section.1}% 11
+\BOOKMARK [2][-]{subsection.1.11}{Run\040the\040model\040against\040the\040Test\040data\040and\040show\040a\040sample\040of\040the\040predictions}{section.1}% 12
+\BOOKMARK [2][-]{subsection.1.12}{Evaluate\040the\040model\040by\040computing\040the\040RMSE\040on\040the\040test\040data}{section.1}% 13
+\BOOKMARK [2][-]{subsection.1.13}{Show\040that\040a\040smaller\040value\040of\040rmse\040is\040better}{section.1}% 14
+\BOOKMARK [2][-]{subsection.1.14}{Make\040movie\040recommendations}{section.1}% 15
+\BOOKMARK [1][-]{section.2}{Show\040sample\040recommendations\040per\040user}{}% 16
+\BOOKMARK [1][-]{section.3}{Show\040sample\040recommendations\040per\040user}{}% 17
