@@ -2,35 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b6e891-9b45-4bbf-81fb-3a467a4daa77" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.synctex.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/_HW2_GUIDE.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/demo_ppt.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m.zip.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/movies.dat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/explicit_recommendation-checkpoint.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.aux" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/explicit_recommendation.tex" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/exportToHTML/explicit_recommendation.ipynb.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/hw2_demo.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/.ipynb_checkpoints/hw2_Q1_demo-checkpoint.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q1_demo.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/hw2_data_clean_text_vectorization_demo.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/scala/.ipynb_checkpoints/MovieRecommendations-checkpoint.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/scala/MovieRecommendations.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/ratings.dat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ml-1m/users.dat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WikiExtractor.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/down_1.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/wiki_parser.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.aux" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.synctex.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.tex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/exportToHTML/explicit_recommendation.ipynb.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ml-1m.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ml-1m.zip.1" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,6 +32,7 @@
     <SUITE FILE_PATH="coverage/spark$dataset3taxi.coverage" NAME="dataset3taxi Coverage Results" MODIFIED="1506742564272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spark-warehouse" />
     <SUITE FILE_PATH="coverage/spark$simple.coverage" NAME="simple Coverage Results" MODIFIED="1506739876347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/spark$dataset2tags.coverage" NAME="dataset2tags Coverage Results" MODIFIED="1506740622812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/spark$wiki_parser.coverage" NAME="wiki_parser Coverage Results" MODIFIED="1507521969093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hw2_demo" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExportToHTMLSettings">
@@ -52,11 +41,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bitcoin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mllib.ipynb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mllib.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bitcoin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+            <state relative-caret-position="259">
+              <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
               <folding>
                 <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
               </folding>
@@ -69,8 +67,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -103,8 +101,14 @@
         <option value="$PROJECT_DIR$/bitcoin.txt" />
         <option value="$PROJECT_DIR$/get_data.sh" />
         <option value="$PROJECT_DIR$/hw2_demo/scala/MovieRecommendations.ipynb" />
-        <option value="$PROJECT_DIR$/explicit_recommendation.ipynb" />
         <option value="$PROJECT_DIR$/hw2_demo/hw2_Q1_demo.ipynb" />
+        <option value="$PROJECT_DIR$/explicit_recommendation.ipynb" />
+        <option value="$PROJECT_DIR$/implicit_recommendation.ipynb" />
+        <option value="$PROJECT_DIR$/hw2_demo/down_1.ipynb" />
+        <option value="$PROJECT_DIR$/hw2_demo/wiki_parser.py" />
+        <option value="$PROJECT_DIR$/hw2_demo/WikiExtractor.py" />
+        <option value="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
+        <option value="$PROJECT_DIR$/mllib.ipynb" />
       </list>
     </option>
   </component>
@@ -162,64 +166,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="save_tables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hw2_demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spark" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hw2_demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -234,6 +180,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/save_tables" />
     </key>
   </component>
@@ -249,26 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.simple">
-    <configuration default="false" name="simple" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="spark" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/save_tables/simple.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.wiki_parser">
     <configuration default="false" name="dataset2tags" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -337,6 +265,25 @@
       <option name="PARAMETERS" value="" />
       <module name="spark" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="wiki_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hw2_demo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="spark" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hw2_demo/wiki_parser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -499,19 +446,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.simple" />
-      <item index="1" class="java.lang.String" itemvalue="Python.dataset2tags" />
-      <item index="2" class="java.lang.String" itemvalue="Python.dataset3taxi" />
-      <item index="3" class="java.lang.String" itemvalue="Python.airlines" />
-      <item index="4" class="java.lang.String" itemvalue="Bash.get_data.sh" />
+      <item index="0" class="java.lang.String" itemvalue="Python.dataset2tags" />
+      <item index="1" class="java.lang.String" itemvalue="Python.dataset3taxi" />
+      <item index="2" class="java.lang.String" itemvalue="Python.airlines" />
+      <item index="3" class="java.lang.String" itemvalue="Bash.get_data.sh" />
+      <item index="4" class="java.lang.String" itemvalue="Python.wiki_parser" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Bash.get_data.sh" />
-        <item index="1" class="java.lang.String" itemvalue="Python.airlines" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dataset3taxi" />
-        <item index="3" class="java.lang.String" itemvalue="Python.dataset2tags" />
-        <item index="4" class="java.lang.String" itemvalue="Python.simple" />
+        <item index="0" class="java.lang.String" itemvalue="Python.wiki_parser" />
+        <item index="1" class="java.lang.String" itemvalue="Bash.get_data.sh" />
+        <item index="2" class="java.lang.String" itemvalue="Python.airlines" />
+        <item index="3" class="java.lang.String" itemvalue="Python.dataset3taxi" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dataset2tags" />
       </list>
     </recent_temporary>
   </component>
@@ -575,22 +522,28 @@
       <option name="project" value="LOCAL" />
       <updated>1507437805551</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="explict ALS">
+      <created>1507437884429</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1507437884429</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11516452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23373494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23373494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -874,6 +827,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/implicit_recommendation.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding>
+            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q1_demo.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -881,20 +858,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb">
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="22" />
+          <selected id="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+    <entry file="file://$PROJECT_DIR$/hw2_demo/down_1.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/wiki_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="37" column="31" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        <state relative-caret-position="450">
+          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding>
-            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
+            <element signature="e#204#241#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WikiExtractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="3222" column="47" lean-forward="false" selection-start-line="3222" selection-start-column="47" selection-end-line="3222" selection-end-column="47" />
+          <folding>
+            <element signature="e#2093#2142#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mllib.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="91" />
         </state>
       </provider>
     </entry>
