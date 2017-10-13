@@ -1,0 +1,2196 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{report}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{EECS E6893\\Homework 2\\Jun Hu\\jh3846}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    
+    \maketitle
+    
+    
+    \tableofcontents
+
+
+    
+\chapter{Question 1 Part 1: Building an Explicit Movie Recommendation
+System with Spark
+MLlib}\label{question-1-part-1-building-an-explicit-movie-recommendation-system-with-spark-mllib}
+
+\section{Import required libraries}\label{import-required-libraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{subprocess}
+        \PY{k+kn}{import} \PY{n+nn}{findspark}
+        \PY{n}{findspark}\PY{o}{.}\PY{n}{init}\PY{p}{(}\PY{p}{)}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{evaluation} \PY{k}{import} \PY{n}{RegressionEvaluator}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{recommendation} \PY{k}{import} \PY{n}{ALS}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+        
+        \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+            \PY{o}{.}\PY{n}{builder} \PYZbs{}
+            \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{recommendation\PYZus{}explicit}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Download/Unzip the MovieLens 1M dataset from
+http://grouplens.org/datasets/movielens}\label{downloadunzip-the-movielens-1m-dataset-from-httpgrouplens.orgdatasetsmovielens}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{subprocess}\PY{o}{.}\PY{n}{call}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{wget}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{http://files.grouplens.org/datasets/movielens/ml\PYZhy{}1m.zip}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+        \PY{n}{subprocess}\PY{o}{.}\PY{n}{call}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{unzip}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ml\PYZhy{}1m.zip}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}2}]:} 1
+\end{Verbatim}
+            
+\section{Read and Convert ratings data to a
+DataFrame}\label{read-and-convert-ratings-data-to-a-dataframe}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{lines} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{read}\PY{o}{.}\PY{n}{text}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./ml\PYZhy{}1m/ratings.dat}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{rdd}
+        \PY{n}{parts} \PY{o}{=} \PY{n}{lines}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{row}\PY{p}{:} \PY{n}{row}\PY{o}{.}\PY{n}{value}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{::}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ratingsRDD} \PY{o}{=} \PY{n}{parts}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{p}\PY{p}{:} \PY{n}{Row}\PY{p}{(}\PY{n}{userId}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{movieId}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                                             \PY{n}{rating}\PY{o}{=}\PY{n+nb}{float}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{timestamp}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ratings} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{ratingsRDD}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Show the number of ratings in the
+dataset}\label{show-the-number-of-ratings-in-the-dataset}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of ratings = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ratings}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Number of ratings = 1000209
+
+    \end{Verbatim}
+
+\section{Show a sample of the Ratings
+DataFrame}\label{show-a-sample-of-the-ratings-dataframe}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{ratings}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.0001}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++-------+------+---------+------+
+|movieId|rating|timestamp|userId|
++-------+------+---------+------+
+|   2908|   5.0|977895809|    68|
+|   3730|   5.0|978554445|   173|
+|   2917|   2.0|976301830|   456|
+|    589|   4.0|976161565|   526|
+|   2348|   3.0|976207524|   533|
+|   1285|   4.0|979154572|   588|
+|   1206|   4.0|980628867|   711|
+|   3361|   4.0|975510209|   730|
+|   3203|   5.0|975435824|   779|
+|   1196|   4.0|975356701|   843|
++-------+------+---------+------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Show sample number of ratings per
+user}\label{show-sample-number-of-ratings-per-user}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{grouped\PYZus{}ratings} \PY{o}{=} \PY{n}{ratings}\PY{o}{.}\PY{n}{groupBy}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{userId}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{withColumnRenamed}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{count}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{No. of ratings}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{grouped\PYZus{}ratings}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++------+--------------+
+|userId|No. of ratings|
++------+--------------+
+|    26|           400|
+|    29|           108|
+|   474|           318|
+|   964|            78|
+|  1677|            43|
+|  1697|           354|
+|  1806|           214|
+|  1950|           137|
+|  2040|            46|
+|  2214|            81|
++------+--------------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Show the number of users in the
+dataset}\label{show-the-number-of-users-in-the-dataset}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of users = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{grouped\PYZus{}ratings}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Number of users = 6040
+
+    \end{Verbatim}
+
+\section{Split Ratings data into Training (80\%) and Test (20\%)
+datasets}\label{split-ratings-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{ratings}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Show resulting Ratings dataset
+counts}\label{show-resulting-ratings-dataset-counts}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{trainingRatio} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{training}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{ratings}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{100}
+        \PY{n}{testRatio} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{test}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{ratings}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{100}
+        
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total number of ratings = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ratings}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Training dataset count = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{training}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{trainingRatio}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Test dataset count = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{test}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{testRatio}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Total number of ratings = 1000209
+Training dataset count = 800880, 80.07126510559293\%
+Test dataset count = 199329, 19.928734894407068\%
+
+    \end{Verbatim}
+
+\section{Build the recommendation model on the training data using
+ALS-explicit}\label{build-the-recommendation-model-on-the-training-data-using-als-explicit}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{als} \PY{o}{=} \PY{n}{ALS}\PY{p}{(}\PY{n}{maxIter}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{regParam}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{n}{userCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{userId}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{itemCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{movieId}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ratingCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rating}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                   \PY{n}{coldStartStrategy}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{drop}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{als}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Run the model against the Test data and show a sample of the
+predictions}\label{run-the-model-against-the-test-data-and-show-a-sample-of-the-predictions}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{predictions} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}\PY{o}{.}\PY{n}{na}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{)}
+         \PY{n}{predictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++-------+------+---------+------+----------+
+|movieId|rating|timestamp|userId|prediction|
++-------+------+---------+------+----------+
+|    148|   1.0|976295338|   840| 2.9349167|
+|    148|   2.0|974875106|  1150| 2.9894443|
+|    148|   2.0|974178993|  2456| 3.9975448|
+|    463|   5.0|968916009|  3151|  3.967182|
+|    463|   3.0|963746396|  4858| 2.0730953|
+|    463|   4.0|973625620|  2629| 3.1774714|
+|    463|   1.0|966523740|  3683| 1.1212827|
+|    463|   2.0|966790403|  3562|  2.780132|
+|    463|   4.0|975775726|   721| 3.3978982|
+|    463|   3.0|965308300|  4252| 0.9944763|
++-------+------+---------+------+----------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Evaluate the model by computing the RMSE on the test
+data}\label{evaluate-the-model-by-computing-the-rmse-on-the-test-data}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{predictions} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+         \PY{n}{evaluator} \PY{o}{=} \PY{n}{RegressionEvaluator}\PY{p}{(}\PY{n}{metricName}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rmse}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{labelCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rating}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                                         \PY{n}{predictionCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{rmse} \PY{o}{=} \PY{n}{evaluator}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{predictions}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Root\PYZhy{}mean\PYZhy{}square error = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{rmse}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Root-mean-square error = 0.8908929362860674
+
+    \end{Verbatim}
+
+\section{Show that a smaller value of rmse is
+better}\label{show-that-a-smaller-value-of-rmse-is-better}
+
+This is obviously the case since RMSE is an aggregation of all the
+error. Thus evaluator.isLargerBetter should be 'false'.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{evaluator}\PY{o}{.}\PY{n}{isLargerBetter}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}13}]:} False
+\end{Verbatim}
+            
+\section{Make movie recommendations}\label{make-movie-recommendations}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{} Generate top 10 movie recommendations for each user}
+         \PY{n}{userRecs} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{recommendForAllUsers}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} Generate top 10 user recommendations for each movie}
+         \PY{n}{movieRecs} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{recommendForAllItems}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Show sample recommendations per
+user}\label{show-sample-recommendations-per-user}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{userRecs}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.01}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|userId|recommendations                                                                                                                                                               |
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|148   |[[1780,7.2854385], [1369,6.99533], [666,6.6703053], [2892,6.5549903], [1741,6.528875], [3523,6.07751], [572,6.003775], [2127,5.859668], [1164,5.6353364], [649,5.5918784]]    |
+|5173  |[[3245,7.7563887], [1038,7.52281], [3867,7.2047706], [632,7.0838833], [37,7.0073814], [751,6.936385], [1369,6.471981], [645,6.453275], [1664,6.23118], [1543,6.188328]]       |
+|5695  |[[1458,9.663776], [3855,9.074218], [3106,9.053921], [2837,9.043263], [2192,8.797422], [2397,8.7831135], [341,8.623167], [1511,8.611192], [3636,8.600376], [219,8.446543]]     |
+|1863  |[[962,6.392259], [2175,6.2921085], [2984,6.027778], [759,5.9641767], [3737,5.929455], [2284,5.917394], [2426,5.894059], [854,5.883927], [2209,5.847718], [2705,5.8452163]]    |
+|1924  |[[1038,8.618518], [219,7.9083204], [131,7.871811], [632,7.788521], [1458,7.681244], [1574,7.473834], [119,7.1832986], [1696,7.0665197], [1312,6.7171383], [1651,6.703975]]    |
+|4610  |[[3670,6.8609476], [1117,6.645418], [2994,6.6018786], [2830,6.596518], [2934,6.505612], [3851,6.3677354], [2512,6.349237], [106,6.3229113], [2933,6.315516], [96,6.302059]]   |
+|4104  |[[649,7.115762], [1421,6.597936], [3885,6.493393], [1585,6.441885], [1741,6.0131593], [503,5.8390074], [3847,5.8177996], [443,5.6730995], [2624,5.634462], [3749,5.602259]]   |
+|1249  |[[3636,8.443559], [1420,7.907082], [1664,7.8959613], [3456,7.7776465], [2697,7.7743106], [702,7.7192597], [2825,7.573881], [2933,7.547401], [3900,7.4978175], [645,7.3760333]]|
+|855   |[[3670,5.6403356], [557,5.452341], [503,4.9971642], [3338,4.9897413], [3012,4.9187536], [2830,4.8673472], [1664,4.8444023], [3851,4.840315], [572,4.8038983], [2934,4.760828]]|
+|5361  |[[3523,8.854711], [1662,7.23445], [2388,7.046192], [1780,6.9375844], [2892,6.929945], [2164,6.6275907], [1117,6.4804296], [1846,6.458152], [131,6.426946], [2962,6.3652472]]  |
++------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Show sample recommendations per
+user}\label{show-sample-recommendations-per-user}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{movieRecs}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.01}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|movieId|recommendations                                                                                                                                                                |
++-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|3844   |[[1213,7.3201046], [2441,6.9640417], [5297,6.8789372], [2549,6.8698826], [2816,6.507644], [1971,6.458085], [2160,6.4162674], [3915,6.402381], [4544,6.17197], [2560,6.119645]] |
+|1031   |[[1070,5.9382234], [4143,5.8492775], [3897,5.841146], [2755,5.6947303], [4282,5.6827908], [527,5.6089225], [1728,5.5674863], [5052,5.52997], [5983,5.419548], [1459,5.4131107]]|
+|26     |[[1213,7.0531287], [2640,6.3756685], [879,6.1351347], [2502,6.0931673], [5298,5.9518814], [642,5.873951], [1808,5.86157], [6038,5.8189907], [2535,5.804851], [2755,5.7891493]] |
+|626    |[[4504,9.705521], [3222,8.426963], [1713,8.153491], [5863,7.892766], [4583,7.852765], [3113,7.608546], [4776,7.5394926], [206,7.5082846], [2713,7.271112], [4008,7.1363134]]   |
+|3752   |[[5670,6.538592], [21,5.9881763], [5258,5.949679], [4393,5.7138], [4028,5.6019115], [1025,5.459873], [5877,5.4184914], [87,5.411454], [2357,5.375736], [5462,5.3705955]]       |
+|2256   |[[745,7.8676734], [2469,7.4058766], [906,7.213084], [2431,7.1617584], [1754,7.1158795], [5030,7.11016], [3911,6.9476233], [527,6.4272637], [700,6.3252373], [1713,6.281575]]   |
+|3793   |[[640,5.7342196], [5218,5.440282], [1673,5.2526026], [947,5.2225814], [2694,5.2105126], [2879,5.199566], [768,5.188442], [115,5.168048], [527,5.159202], [4936,5.1525726]]     |
+|2867   |[[745,5.992924], [2534,5.8074617], [527,5.6805005], [2755,5.653826], [283,5.3882546], [3587,5.3234334], [3902,5.3050156], [246,5.27825], [5440,5.2693644], [3373,5.2450128]]   |
+|846    |[[4008,10.775237], [4504,10.658872], [3222,9.88133], [399,9.678963], [5240,9.402692], [144,9.301779], [653,9.236071], [734,9.1837225], [2191,8.888657], [1014,8.74862]]        |
+|729    |[[665,11.115968], [1459,9.497441], [5803,7.76634], [1384,7.726793], [4317,7.657247], [640,7.6146173], [4427,7.6077237], [3870,7.5751157], [3463,7.331725], [3186,6.939564]]    |
++-------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\chapter{Question 1 Part 2: Building an Implicit Music Recommendation
+System with Spark
+MLlib}\label{question-1-part-2-building-an-implicit-music-recommendation-system-with-spark-mllib}
+
+\section{Import required libraries}\label{import-required-libraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{import} \PY{n+nn}{subprocess}
+        \PY{k+kn}{import} \PY{n+nn}{findspark}
+        \PY{n}{findspark}\PY{o}{.}\PY{n}{init}\PY{p}{(}\PY{p}{)}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{evaluation} \PY{k}{import} \PY{n}{RegressionEvaluator}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{recommendation} \PY{k}{import} \PY{n}{ALS}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{recommendation} \PY{k}{import} \PY{n}{ALSModel}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+        
+        \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+            \PY{o}{.}\PY{n}{builder} \PYZbs{}
+            \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{recommendation\PYZus{}implicit}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Download/Unzip Audioscrobbler dataset from
+http://www.iro.umontreal.ca/\textasciitilde{}lisa/datasets/profiledata\_06-May-2005.tar.gz}\label{downloadunzip-audioscrobbler-dataset-from-httpwww.iro.umontreal.calisadatasetsprofiledata_06-may-2005.tar.gz}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} subprocess.call([\PYZdq{}wget\PYZdq{}, \PYZdq{}http://www.iro.umontreal.ca/\PYZti{}lisa/datasets/profiledata\PYZus{}06\PYZhy{}May\PYZhy{}2005.tar.gz\PYZdq{}])}
+\end{Verbatim}
+
+
+\section{Read and Convert ratings data to a
+DataFrame}\label{read-and-convert-ratings-data-to-a-dataframe}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{lines} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{read}\PY{o}{.}\PY{n}{text}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./profiledata\PYZus{}06\PYZhy{}May\PYZhy{}2005/user\PYZus{}artist\PYZus{}data.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{rdd}
+        \PY{n}{parts} \PY{o}{=} \PY{n}{lines}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{row}\PY{p}{:} \PY{n}{row}\PY{o}{.}\PY{n}{value}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{filter}\PY{p}{(}\PY{k}{lambda} \PY{n}{line}\PY{p}{:} \PY{n}{line}\PY{o}{!=}\PY{k+kc}{None}\PY{p}{)}
+        \PY{n}{userArtistRDD} \PY{o}{=} \PY{n}{parts}\PY{o}{.}\PY{n}{map}\PY{p}{(}\PY{k}{lambda} \PY{n}{p}\PY{p}{:} \PY{n}{Row}\PY{p}{(}\PY{n}{userId}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{artistId}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+                                             \PY{n}{count}\PY{o}{=}\PY{n+nb}{int}\PY{p}{(}\PY{n}{p}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        \PY{n}{userArtist} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{userArtistRDD}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Show the number of userArtist in the
+dataset}\label{show-the-number-of-userartist-in-the-dataset}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of userArtist = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{userArtist}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Number of userArtist = 24296858
+
+    \end{Verbatim}
+
+\section{Show a sample of the userArtist
+DataFrame}\label{show-a-sample-of-the-userartist-dataframe}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{userArtist}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.0001}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{23}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++--------+-----+-------+
+|artistId|count| userId|
++--------+-----+-------+
+| 1054292|    1|1000127|
+| 1033246|    1|1000215|
+|    1269|   13|1000357|
+|     630|    1|1000410|
+| 1000428|    2|1000657|
+| 1234327|    1|1000911|
+|      45|   34|1000923|
+|     969|    4|1000927|
+|    1235|    1|1000928|
+|    3950|    2|1001009|
++--------+-----+-------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Split userArtist data into Training (80\%) and Test (20\%)
+datasets}\label{split-userartist-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{userArtist}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Show resulting userArtist dataset
+counts}\label{show-resulting-userartist-dataset-counts}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{trainingRatio} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{training}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{userArtist}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{100}
+        \PY{n}{testRatio} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{test}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n+nb}{float}\PY{p}{(}\PY{n}{userArtist}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{100}
+        
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total number of userArtist = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{userArtist}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Training dataset count = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{training}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{trainingRatio}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Test dataset count = }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{test}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{testRatio}\PY{p}{)} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Build the recommendation model on the training data using
+ALS-implicit}\label{build-the-recommendation-model-on-the-training-data-using-als-implicit}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{als} \PY{o}{=} \PY{n}{ALS}\PY{p}{(}\PY{n}{maxIter}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{regParam}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{n}{implicitPrefs}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{userCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{userId}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{itemCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{artistId}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ratingCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{count}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{model} \PY{o}{=} \PY{n}{als}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Save and load model}\label{save-and-load-model}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} from pyspark.mllib.recommendation import MatrixFactorizationModel}
+        \PY{c+c1}{\PYZsh{} model.save(\PYZdq{}hdfs://localhost:9000/user/vibrioh/implicit\PYZus{}model\PYZdq{})}
+        \PY{n}{sameModel} \PY{o}{=} \PY{n}{ALSModel}\PY{o}{.}\PY{n}{load}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{hdfs://localhost:9000/user/vibrioh/implicit\PYZus{}model}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Run the model against the Test data and show a sample of the
+predictions}\label{run-the-model-against-the-test-data-and-show-a-sample-of-the-predictions}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{predictions} \PY{o}{=} \PY{n}{sameModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}\PY{o}{.}\PY{n}{na}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{)}
+        \PY{n}{predictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++--------+-----+-------+----------+
+|artistId|count| userId|prediction|
++--------+-----+-------+----------+
+|     463|    1|1000117| 1.0815843|
+|     463|    1|1000221| 0.3066332|
+|     463|    1|1000401|0.41309264|
+|     463|    1|1000463|0.92721707|
+|     463|    1|1000614|0.66710955|
+|     463|    1|1000745| 0.5759305|
+|     463|    1|1000771|0.10025656|
+|     463|    1|1000920|0.14627631|
+|     463|    1|1001192| 0.4186052|
+|     463|    1|1001239|0.11049299|
++--------+-----+-------+----------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\section{Show recommendations high and
+low}\label{show-recommendations-high-and-low}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{predictions}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT * FROM predictions ORDER BY prediction DESC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+        \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT * FROM predictions ORDER BY prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++--------+-----+-------+----------+
+|artistId|count| userId|prediction|
++--------+-----+-------+----------+
+|     393|   44|1044648|  2.048578|
+| 1002862|    3|1000764| 2.0438032|
+| 1245208|   16|1077252| 1.9122567|
+|    1457|    3|1052461| 1.8336266|
+|    4538|    1|1044648| 1.8334882|
+| 1003361|    8|1052461| 1.7632964|
+| 1105069|   12|1045876| 1.7556672|
+|     670|   22|2058707| 1.7466245|
+| 1034635|  208|1038380| 1.7438686|
+| 1043348|   56|1021501| 1.7395341|
+| 1003133|    3|1044648| 1.7320846|
+| 1299851|   55|1007308| 1.7286341|
+| 1296257|   27|1007308| 1.7270842|
+| 1034635|   54|1047668| 1.7216785|
+| 1031984|    3|1038826|  1.719785|
+| 1001169|    9|1072865| 1.7158957|
+|    2842|    3|1077252| 1.7109416|
+|    2017|  128|2089146|  1.698533|
+| 1012494|    5|1070844| 1.6947658|
+| 1034635|    4|1001562| 1.6939092|
++--------+-----+-------+----------+
+only showing top 20 rows
+
++--------+-----+-------+-----------+
+|artistId|count| userId| prediction|
++--------+-----+-------+-----------+
+|     606|    1|1072273| -1.1034482|
+| 1062984|    5|1052461| -1.0605614|
+| 1002751|    1|2005325| -0.9165062|
+| 1000660|    1|2114152|-0.82818604|
+| 1000270|    1|1070177| -0.7904455|
+| 1001428|    1|2019216|-0.78354007|
+|    4569|    4|1072273| -0.7598609|
+| 1010728|   22|1054893| -0.7471355|
+| 1006594|    3|2231283| -0.7382127|
+| 1020783|    6|2200013| -0.6836228|
+|    1400|    4|2287446| -0.6611168|
+| 1003458|    1|1003897| -0.6341311|
+| 1007027|    8|1000647|  -0.631236|
+| 1003084|    1|1063655|-0.62958777|
+|    2138|    1|2147892| -0.6157164|
+|    1179|    2|1055807| -0.6106846|
+|    1223|    1|2269169| -0.6081734|
+| 1000418|    1|1020855| -0.5983083|
+| 1002451|    2|2216293| -0.5928024|
+| 1027267|    1|2200013|-0.58894813|
++--------+-----+-------+-----------+
+only showing top 20 rows
+
+
+    \end{Verbatim}
+
+\chapter{Question 2 Part 1: Clustering on News
+Articles}\label{question-2-part-1-clustering-on-news-articles}
+
+\section{Download news articles from:
+https://www.kaggle.com/asad1m9a9h6mood/news-articles}\label{download-news-articles-from-httpswww.kaggle.comasad1m9a9h6moodnews-articles}
+
+\subsection{This Dataset is scraped from https://www.thenews.com.pk
+website. It has news articles from 2015 till date related to business
+and sports. It Contains the Heading of the particular Article, Its
+content and its date. The content also contains the place from where the
+statement or Article was
+published.}\label{this-dataset-is-scraped-from-httpswww.thenews.com.pk-website.-it-has-news-articles-from-2015-till-date-related-to-business-and-sports.-it-contains-the-heading-of-the-particular-article-its-content-and-its-date.-the-content-also-contains-the-place-from-where-the-statement-or-article-was-published.}
+
+\section{Import required libraries}\label{import-required-libraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml} \PY{k}{import} \PY{n}{Pipeline}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{clustering} \PY{k}{import} \PY{n}{BisectingKMeans}\PY{p}{,} \PY{n}{KMeans}\PY{p}{,} \PY{n}{GaussianMixture}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{feature} \PY{k}{import} \PY{n}{HashingTF}\PY{p}{,} \PY{n}{Tokenizer}\PY{p}{,} \PY{n}{NGram}\PY{p}{,} \PY{n}{IDF}\PY{p}{,} \PY{n}{StopWordsRemover}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+        \PY{k+kn}{import} \PY{n+nn}{os}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+        
+        
+        \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+            \PY{o}{.}\PY{n}{builder} \PYZbs{}
+            \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{news\PYZus{}clustering}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+            \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Explore the dataset in
+Pandas}\label{explore-the-dataset-in-pandas}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{data\PYZus{}df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./Articles.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{sep}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{,}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{encoding} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ISO\PYZhy{}8859\PYZhy{}1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{data\PYZus{}df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} <div>
+        <style>
+            .dataframe thead tr:only-child th \{
+                text-align: right;
+            \}
+        
+            .dataframe thead th \{
+                text-align: left;
+            \}
+        
+            .dataframe tbody tr th \{
+                vertical-align: top;
+            \}
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>Article</th>
+              <th>Date</th>
+              <th>Heading</th>
+              <th>NewsType</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>0</th>
+              <td>KARACHI: The Sindh government has decided to b{\ldots}</td>
+              <td>1/1/2015</td>
+              <td>sindh govt decides to cut public transport far{\ldots}</td>
+              <td>business</td>
+            </tr>
+            <tr>
+              <th>1</th>
+              <td>HONG KONG: Asian markets started 2015 on an up{\ldots}</td>
+              <td>1/2/2015</td>
+              <td>asia stocks up in new year trad</td>
+              <td>business</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>HONG KONG:  Hong Kong shares opened 0.66 perce{\ldots}</td>
+              <td>1/5/2015</td>
+              <td>hong kong stocks open 0.66 percent lower</td>
+              <td>business</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>HONG KONG: Asian markets tumbled Tuesday follo{\ldots}</td>
+              <td>1/6/2015</td>
+              <td>asian stocks sink euro near nine year</td>
+              <td>business</td>
+            </tr>
+            <tr>
+              <th>4</th>
+              <td>NEW YORK: US oil prices Monday slipped below \${\ldots}</td>
+              <td>1/6/2015</td>
+              <td>us oil prices slip below 50 a barr</td>
+              <td>business</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{data\PYZus{}df}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} <div>
+        <style>
+            .dataframe thead tr:only-child th \{
+                text-align: right;
+            \}
+        
+            .dataframe thead th \{
+                text-align: left;
+            \}
+        
+            .dataframe tbody tr th \{
+                vertical-align: top;
+            \}
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>Article</th>
+              <th>Date</th>
+              <th>Heading</th>
+              <th>NewsType</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>count</th>
+              <td>2692</td>
+              <td>2692</td>
+              <td>2692</td>
+              <td>2692</td>
+            </tr>
+            <tr>
+              <th>unique</th>
+              <td>2584</td>
+              <td>666</td>
+              <td>2581</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th>top</th>
+              <td>strong\&gt;TOKYO: Tokyo stocks climbed in early tr{\ldots}</td>
+              <td>8/1/2016</td>
+              <td>Tokyo stocks open lower after BoJ under</td>
+              <td>sports</td>
+            </tr>
+            <tr>
+              <th>freq</th>
+              <td>5</td>
+              <td>27</td>
+              <td>5</td>
+              <td>1408</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{data} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{data\PYZus{}df}\PY{p}{)}
+        \PY{n}{data}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+        \PY{n}{data}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.05}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- Article: string (nullable = true)
+ |-- Date: string (nullable = true)
+ |-- Heading: string (nullable = true)
+ |-- NewsType: string (nullable = true)
+
++--------------------+---------+--------------------+--------+
+|             Article|     Date|             Heading|NewsType|
++--------------------+---------+--------------------+--------+
+|HONG KONG: Asian {\ldots}| 1/6/2015|asian stocks sink{\ldots}|business|
+|ISLAMABAD: The Na{\ldots}|1/23/2015|nepra prevents k {\ldots}|business|
+|ISLAMABAD: Pakist{\ldots}|1/26/2015|pakistan fuel cri{\ldots}|business|
+|ISLAMABAD: Federa{\ldots}| 3/4/2015|pact with k elect{\ldots}|business|
+|London: Oil price{\ldots}| 3/6/2015|oil prices rise b{\ldots}|business|
++--------------------+---------+--------------------+--------+
+only showing top 5 rows
+
+
+    \end{Verbatim}
+
+\section{Split data into Training (80\%) and Test (20\%)
+datasets}\label{split-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Configure an ML pipeline}\label{configure-an-ml-pipeline}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{tokenizer} \PY{o}{=} \PY{n}{Tokenizer}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Article}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{words}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{remover} \PY{o}{=} \PY{n}{StopWordsRemover}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{n}{tokenizer}\PY{o}{.}\PY{n}{getOutputCol}\PY{p}{(}\PY{p}{)}\PY{p}{,}\PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{filtered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}   
+         \PY{n}{hashingTF} \PY{o}{=} \PY{n}{HashingTF}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{n}{remover}\PY{o}{.}\PY{n}{getOutputCol}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{numFeatures}\PY{o}{=}\PY{l+m+mi}{1048576}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Clustering by K-MEANS}\label{clustering-by-k-means}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{kmeans} \PY{o}{=} \PY{n}{KMeans}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setK}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{setSeed}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{n}{pipeline} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{n}{stages}\PY{o}{=}\PY{p}{[}\PY{n}{tokenizer}\PY{p}{,} \PY{n}{remover}\PY{p}{,} \PY{n}{hashingTF}\PY{p}{,} \PY{n}{kmeans}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Make predictions on test and print interested columns of
+different
+clusters}\label{make-predictions-on-test-and-print-interested-columns-of-different-clusters}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{predictions} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+         \PY{n}{predictions}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT Article, NewsType, prediction FROM predictions WHERE NewsType = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{business}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT Article, NewsType, prediction FROM predictions WHERE NewsType = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{sports}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++--------------------+--------+----------+
+|             Article|NewsType|prediction|
++--------------------+--------+----------+
+|A major rally in {\ldots}|business|         1|
+|ATLANTA: Twelve P{\ldots}|business|         1|
+|BEIJING: Pakistan{\ldots}|business|         0|
+|Brussels: The EU {\ldots}|business|         0|
+|DUBAI: Talks betw{\ldots}|business|         0|
+|HONG KONG: Hong K{\ldots}|business|         0|
+|Hong Kong: Asian {\ldots}|business|         1|
+|Hong Kong: Asian {\ldots}|business|         1|
+|Hong Kong: Asian {\ldots}|business|         1|
+|Hong Kong: Asian {\ldots}|business|         1|
++--------------------+--------+----------+
+only showing top 10 rows
+
++--------------------+--------+----------+
+|             Article|NewsType|prediction|
++--------------------+--------+----------+
+|AUCKLAND: Martin {\ldots}|  sports|         0|
+|Australia win run{\ldots}|  sports|         0|
+|CAPE TOWN: Alex H{\ldots}|  sports|         0|
+|CAPE TOWN: Captai{\ldots}|  sports|         0|
+|CAPE TOWN: Poor w{\ldots}|  sports|         0|
+|CAPE TOWN: Tiny T{\ldots}|  sports|         0|
+|DHAKA: Bangladesh{\ldots}|  sports|         0|
+|DHAKA: Bangladesh{\ldots}|  sports|         0|
+|DHAKA: Captain of{\ldots}|  sports|         0|
+|DHAKA: Hasan Mohs{\ldots}|  sports|         0|
++--------------------+--------+----------+
+only showing top 10 rows
+
+
+    \end{Verbatim}
+
+\chapter{Question 2 Part 2: Clustering on Wikipedia
+articles}\label{question-2-part-2-clustering-on-wikipedia-articles}
+
+\section{Import required libraries}\label{import-required-libraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml} \PY{k}{import} \PY{n}{Pipeline}
+         \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{clustering} \PY{k}{import} \PY{n}{BisectingKMeans}\PY{p}{,} \PY{n}{KMeans}\PY{p}{,} \PY{n}{GaussianMixture}
+         \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{feature} \PY{k}{import} \PY{n}{HashingTF}\PY{p}{,} \PY{n}{Tokenizer}\PY{p}{,} \PY{n}{NGram}\PY{p}{,} \PY{n}{IDF}\PY{p}{,} \PY{n}{StopWordsRemover}
+         \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+         \PY{k+kn}{import} \PY{n+nn}{os}
+         \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+         \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+         \PY{k+kn}{import} \PY{n+nn}{subprocess}
+         \PY{k+kn}{import} \PY{n+nn}{json}
+         
+         
+         \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+             \PY{o}{.}\PY{n}{builder} \PYZbs{}
+             \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{wiki\PYZus{}clustering}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+             \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+             \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Download/Unzip
+https://dumps.wikimedia.org/enwiki/20170920/enwiki-20170920-pages-articles14.xml-p7697599p7744799.bz2}\label{downloadunzip-httpsdumps.wikimedia.orgenwiki20170920enwiki-20170920-pages-articles14.xml-p7697599p7744799.bz2}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{c+c1}{\PYZsh{}subprocess.call([\PYZdq{}wget\PYZdq{}, \PYZdq{}https://dumps.wikimedia.org/enwiki/20170920/enwiki\PYZhy{}20170920\PYZhy{}pages\PYZhy{}articles14.xml\PYZhy{}p7697599p7744799.bz2\PYZdq{}])}
+\end{Verbatim}
+
+
+\section{Parse xml to json using WikiExtractorw
+(https://github.com/attardi/wikiextractor)}\label{parse-xml-to-json-using-wikiextractorw-httpsgithub.comattardiwikiextractor}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{c+c1}{\PYZsh{} subprocess.call([\PYZdq{}python3\PYZdq{}, \PYZdq{}WikiExtractor.py\PYZdq{}, \PYZdq{}\PYZhy{}o wiki\PYZus{}extracted\PYZdq{}, \PYZdq{}\PYZhy{}\PYZhy{}json\PYZdq{}, \PYZdq{}\PYZhy{}b 230M\PYZdq{}, \PYZdq{}/Users/vibrioh/Downloads/enwiki\PYZhy{}20170920\PYZhy{}pages\PYZhy{}articles14.xml\PYZhy{}p7697599p7744799.bz2\PYZdq{}])}
+\end{Verbatim}
+
+
+\section{Explore the dataset in
+Pandas}\label{explore-the-dataset-in-pandas}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{/Users/vibrioh/local\PYZus{}projects/spark/ wiki\PYZus{}extracted/AA/wiki\PYZus{}00}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{f}\PY{p}{:}
+             \PY{n}{data\PYZus{}json} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{f}\PY{p}{:}
+                 \PY{n}{data\PYZus{}json}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{json}\PY{o}{.}\PY{n}{loads}\PY{p}{(}\PY{n}{line}\PY{p}{)}\PY{p}{)}
+         \PY{n}{pd\PYZus{}df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{data\PYZus{}json}\PY{p}{)}
+         \PY{n}{pd\PYZus{}df}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}54}]:} <div>
+         <style>
+             .dataframe thead tr:only-child th \{
+                 text-align: right;
+             \}
+         
+             .dataframe thead th \{
+                 text-align: left;
+             \}
+         
+             .dataframe tbody tr th \{
+                 vertical-align: top;
+             \}
+         </style>
+         <table border="1" class="dataframe">
+           <thead>
+             <tr style="text-align: right;">
+               <th></th>
+               <th>id</th>
+               <th>text</th>
+               <th>title</th>
+               <th>url</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <th>0</th>
+               <td>7697605</td>
+               <td>Konica Minolta Cup\textbackslash{}n\textbackslash{}nKonica Minolta Cup may r{\ldots}</td>
+               <td>Konica Minolta Cup</td>
+               <td>https://en.wikipedia.org/wiki?curid=7697605</td>
+             </tr>
+             <tr>
+               <th>1</th>
+               <td>7697611</td>
+               <td>Archer (typeface)\textbackslash{}n\textbackslash{}nArcher is a slab serif ty{\ldots}</td>
+               <td>Archer (typeface)</td>
+               <td>https://en.wikipedia.org/wiki?curid=7697611</td>
+             </tr>
+             <tr>
+               <th>2</th>
+               <td>7697612</td>
+               <td>Stockton Airport\textbackslash{}n\textbackslash{}nStockton Airport may refer{\ldots}</td>
+               <td>Stockton Airport</td>
+               <td>https://en.wikipedia.org/wiki?curid=7697612</td>
+             </tr>
+             <tr>
+               <th>3</th>
+               <td>7697626</td>
+               <td>Ricky Minard\textbackslash{}n\textbackslash{}nRicky Donell Minard Jr. (born {\ldots}</td>
+               <td>Ricky Minard</td>
+               <td>https://en.wikipedia.org/wiki?curid=7697626</td>
+             </tr>
+             <tr>
+               <th>4</th>
+               <td>7697641</td>
+               <td>Alexander Peya\textbackslash{}n\textbackslash{}nAlexander Peya (born 27 June{\ldots}</td>
+               <td>Alexander Peya</td>
+               <td>https://en.wikipedia.org/wiki?curid=7697641</td>
+             </tr>
+           </tbody>
+         </table>
+         </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{pd\PYZus{}df}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}55}]:} <div>
+         <style>
+             .dataframe thead tr:only-child th \{
+                 text-align: right;
+             \}
+         
+             .dataframe thead th \{
+                 text-align: left;
+             \}
+         
+             .dataframe tbody tr th \{
+                 vertical-align: top;
+             \}
+         </style>
+         <table border="1" class="dataframe">
+           <thead>
+             <tr style="text-align: right;">
+               <th></th>
+               <th>id</th>
+               <th>text</th>
+               <th>title</th>
+               <th>url</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <th>count</th>
+               <td>4577</td>
+               <td>4577</td>
+               <td>4577</td>
+               <td>4577</td>
+             </tr>
+             <tr>
+               <th>unique</th>
+               <td>4577</td>
+               <td>4577</td>
+               <td>4577</td>
+               <td>4577</td>
+             </tr>
+             <tr>
+               <th>top</th>
+               <td>7736826</td>
+               <td>Lebe lauter\textbackslash{}n\textbackslash{}nLebe lauter () is the third stu{\ldots}</td>
+               <td>Cyprus at the 1988 Winter Olympics</td>
+               <td>https://en.wikipedia.org/wiki?curid=7716931</td>
+             </tr>
+             <tr>
+               <th>freq</th>
+               <td>1</td>
+               <td>1</td>
+               <td>1</td>
+               <td>1</td>
+             </tr>
+           </tbody>
+         </table>
+         </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{data} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{pd\PYZus{}df}\PY{p}{)}
+         \PY{n}{data}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+         \PY{n}{data}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.27}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- id: string (nullable = true)
+ |-- text: string (nullable = true)
+ |-- title: string (nullable = true)
+ |-- url: string (nullable = true)
+
++-------+--------------------+--------------------+--------------------+
+|     id|                text|               title|                 url|
++-------+--------------------+--------------------+--------------------+
+|7697612|Stockton Airport
+{\ldots}|    Stockton Airport|https://en.wikipe{\ldots}|
+|7697675|Lobo (wrestler)
+
+{\ldots}|     Lobo (wrestler)|https://en.wikipe{\ldots}|
+|7697715|Anti-submarine mi{\ldots}|Anti-submarine mi{\ldots}|https://en.wikipe{\ldots}|
++-------+--------------------+--------------------+--------------------+
+only showing top 3 rows
+
+
+    \end{Verbatim}
+
+\section{Split data into Training (80\%) and Test (20\%)
+datasets}\label{split-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}57}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Configure an ML pipeline}\label{configure-an-ml-pipeline}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{tokenizer} \PY{o}{=} \PY{n}{Tokenizer}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{text}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{words}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{remover} \PY{o}{=} \PY{n}{StopWordsRemover}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{n}{tokenizer}\PY{o}{.}\PY{n}{getOutputCol}\PY{p}{(}\PY{p}{)}\PY{p}{,}\PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{filtered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}   
+         \PY{n}{hashingTF} \PY{o}{=} \PY{n}{HashingTF}\PY{p}{(}\PY{n}{inputCol}\PY{o}{=}\PY{n}{remover}\PY{o}{.}\PY{n}{getOutputCol}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{outputCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{numFeatures}\PY{o}{=}\PY{l+m+mi}{350}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Clustering by K-MEANS}\label{clustering-by-k-means}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{kmeans} \PY{o}{=} \PY{n}{KMeans}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setK}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{setSeed}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{n}{pipeline} \PY{o}{=} \PY{n}{Pipeline}\PY{p}{(}\PY{n}{stages}\PY{o}{=}\PY{p}{[}\PY{n}{tokenizer}\PY{p}{,} \PY{n}{remover}\PY{p}{,} \PY{n}{hashingTF}\PY{p}{,} \PY{n}{kmeans}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Make predictions on test and print interested columns of
+different
+clusters}\label{make-predictions-on-test-and-print-interested-columns-of-different-clusters}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{n}{predictions} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{data}\PY{p}{)}
+         \PY{n}{predictions}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, title, prediction FROM predictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{0}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, title, prediction FROM predictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{1}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT count(*) FROM predictions GROUP BY prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
++-------+--------------------+----------+
+|     id|               title|prediction|
++-------+--------------------+----------+
+|7697605|  Konica Minolta Cup|         0|
+|7697611|   Archer (typeface)|         0|
+|7697612|    Stockton Airport|         0|
+|7697626|        Ricky Minard|         0|
+|7697641|      Alexander Peya|         0|
+|7697655|  Swiss chalet style|         0|
+|7697664|European Federati{\ldots}|         0|
+|7697671|The Best Is Yet t{\ldots}|         0|
+|7697675|     Lobo (wrestler)|         0|
+|7697715|Anti-submarine mi{\ldots}|         0|
++-------+--------------------+----------+
+only showing top 10 rows
+
++-------+--------------------+----------+
+|     id|               title|prediction|
++-------+--------------------+----------+
+|7698038|      Radamel Falcao|         1|
+|7698053| Panjshir offensives|         1|
+|7698941|Istanbul High School|         1|
+|7699151|The Market for Li{\ldots}|         1|
+|7699200|     Parchís (group)|         1|
+|7700918|            Manikata|         1|
+|7701000|2007 Major League{\ldots}|         1|
+|7701470|World War II pers{\ldots}|         1|
+|7701711|      Luck by Chance|         1|
+|7702313|       Yoga Vasistha|         1|
++-------+--------------------+----------+
+only showing top 10 rows
+
++--------+
+|count(1)|
++--------+
+|     154|
+|    4423|
++--------+
+
+
+    \end{Verbatim}
+
+\chapter{Question 3 Part 1: Fist Dataset with Logistic Regression and
+NaiveBayes
+classification}\label{question-3-part-1-fist-dataset-with-logistic-regression-and-naivebayes-classification}
+
+\section{Import required labraries}\label{import-required-labraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}100}]:} \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml} \PY{k}{import} \PY{n}{Pipeline}\PY{p}{,} \PY{n}{PipelineModel}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{clustering} \PY{k}{import} \PY{n}{BisectingKMeans}\PY{p}{,} \PY{n}{KMeans}\PY{p}{,} \PY{n}{GaussianMixture}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{feature} \PY{k}{import} \PY{n}{HashingTF}\PY{p}{,} \PY{n}{Tokenizer}\PY{p}{,} \PY{n}{NGram}\PY{p}{,} \PY{n}{IDF}\PY{p}{,} \PY{n}{StopWordsRemover}
+          \PY{k+kn}{import} \PY{n+nn}{os}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql}\PY{n+nn}{.}\PY{n+nn}{types} \PY{k}{import} \PY{o}{*}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{linalg} \PY{k}{import} \PY{n}{Vectors}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{classification} \PY{k}{import} \PY{n}{LogisticRegression}\PY{p}{,} \PY{n}{NaiveBayes}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{tuning} \PY{k}{import} \PY{n}{ParamGridBuilder}\PY{p}{,} \PY{n}{CrossValidator}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{evaluation} \PY{k}{import} \PY{n}{BinaryClassificationEvaluator}\PY{p}{,} \PY{n}{MulticlassClassificationEvaluator}
+          
+          \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+              \PY{o}{.}\PY{n}{builder} \PYZbs{}
+              \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dataset1\PYZus{}classification}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Read and Vectorize the raw
+data}\label{read-and-vectorize-the-raw-data}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}101}]:} \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{/Users/vibrioh/local\PYZus{}projects/spark/datasets/ta/set1/pima\PYZhy{}indians\PYZhy{}diabetes.data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{f}\PY{p}{:}
+              \PY{n}{col1} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{col2} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{f}\PY{p}{:}
+                  \PY{n}{parts} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                  \PY{n}{label} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{parts}\PY{p}{[}\PY{n+nb}{len}\PY{p}{(}\PY{n}{parts}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{features} \PY{o}{=} \PY{n}{Vectors}\PY{o}{.}\PY{n}{dense}\PY{p}{(}\PY{p}{[}\PY{n+nb}{float}\PY{p}{(}\PY{n}{parts}\PY{p}{[}\PY{n}{x}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{parts}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{col1}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{label}\PY{p}{)}
+                  \PY{n}{col2}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{features}\PY{p}{)}
+              \PY{n+nb}{dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{col1}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{col2}\PY{p}{\PYZcb{}}
+          \PY{n}{pd\PYZus{}d1} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{)}
+          \PY{n}{pd\PYZus{}d1}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}101}]:} <div>
+          <style>
+              .dataframe thead tr:only-child th \{
+                  text-align: right;
+              \}
+          
+              .dataframe thead th \{
+                  text-align: left;
+              \}
+          
+              .dataframe tbody tr th \{
+                  vertical-align: top;
+              \}
+          </style>
+          <table border="1" class="dataframe">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th>features</th>
+                <th>label</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>0</th>
+                <td>[6.0, 148.0, 72.0, 35.0, 0.0, 33.6, 0.627, 50.0]</td>
+                <td>1.0</td>
+              </tr>
+              <tr>
+                <th>1</th>
+                <td>[1.0, 85.0, 66.0, 29.0, 0.0, 26.6, 0.351, 31.0]</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>[8.0, 183.0, 64.0, 0.0, 0.0, 23.3, 0.672, 32.0]</td>
+                <td>1.0</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>[1.0, 89.0, 66.0, 23.0, 94.0, 28.1, 0.167, 21.0]</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>[0.0, 137.0, 40.0, 35.0, 168.0, 43.1, 2.288, 3{\ldots}</td>
+                <td>1.0</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}102}]:} \PY{n}{data1} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{pd\PYZus{}d1}\PY{p}{)}
+          \PY{n}{data1}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+          \PY{n}{data1}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.27}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- features: vector (nullable = true)
+ |-- label: double (nullable = true)
+
++--------------------+-----+
+|            features|label|
++--------------------+-----+
+|[8.0,183.0,64.0,0{\ldots}|  1.0|
+|[1.0,89.0,66.0,23{\ldots}|  0.0|
+|[10.0,115.0,0.0,0{\ldots}|  0.0|
++--------------------+-----+
+only showing top 3 rows
+
+
+    \end{Verbatim}
+
+\section{Split data into Training (80\%) and Test (20\%)
+datasets}\label{split-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}103}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{data1}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{23}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Train Logistic Regression and Naive Bayes
+models}\label{train-logistic-regression-and-naive-bayes-models}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}104}]:} \PY{c+c1}{\PYZsh{} create the trainer and set its parameters}
+          \PY{n}{lr} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{maxIter}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{regParam}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{n}{elasticNetParam}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} Fit the model}
+          \PY{n}{lrModel} \PY{o}{=} \PY{n}{lr}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} create the trainer and set its parameters}
+          \PY{n}{nb} \PY{o}{=} \PY{n}{NaiveBayes}\PY{p}{(}\PY{n}{smoothing}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{modelType}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{multinomial}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} train the model}
+          \PY{n}{nbModel} \PY{o}{=} \PY{n}{nb}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Display the predictions}\label{display-the-predictions}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}106}]:} \PY{n}{lrPredictions} \PY{o}{=} \PY{n}{lrModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{lrPredictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          \PY{n}{nbPredictions} \PY{o}{=} \PY{n}{nbModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{nbPredictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression classifier predictions
++--------------------+-----+--------------------+-----------+----------+
+|            features|label|       rawPrediction|probability|prediction|
++--------------------+-----+--------------------+-----------+----------+
+|[0.0,118.0,84.0,4{\ldots}|  1.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[0.0,119.0,64.0,1{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[0.0,125.0,96.0,0{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[0.0,146.0,82.0,0{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,0.0,74.0,20{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,89.0,66.0,23{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,95.0,66.0,13{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,101.0,50.0,1{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,109.0,56.0,2{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,115.0,70.0,3{\ldots}|  1.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,126.0,56.0,2{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[1.0,163.0,72.0,0{\ldots}|  1.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[2.0,85.0,65.0,0{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[2.0,100.0,66.0,2{\ldots}|  1.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[2.0,110.0,74.0,2{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[3.0,83.0,58.0,31{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[3.0,88.0,58.0,11{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[3.0,128.0,78.0,0{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[3.0,158.0,76.0,3{\ldots}|  1.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
+|[4.0,103.0,60.0,3{\ldots}|  0.0|[0.61903920840622{\ldots}|[0.65,0.35]|       0.0|
++--------------------+-----+--------------------+-----------+----------+
+only showing top 20 rows
+
+Naive Bayes classifier predictions
++--------------------+-----+--------------------+--------------------+----------+
+|            features|label|       rawPrediction|         probability|prediction|
++--------------------+-----+--------------------+--------------------+----------+
+|[0.0,118.0,84.0,4{\ldots}|  1.0|[-940.61590258077{\ldots}|[0.00222035512724{\ldots}|       1.0|
+|[0.0,119.0,64.0,1{\ldots}|  0.0|[-570.93042316226{\ldots}|[0.34024409829781{\ldots}|       1.0|
+|[0.0,125.0,96.0,0{\ldots}|  0.0|[-398.51412035553{\ldots}|[0.99984493731386{\ldots}|       0.0|
+|[0.0,146.0,82.0,0{\ldots}|  0.0|[-507.15808445073{\ldots}|[0.99944541772140{\ldots}|       0.0|
+|[1.0,0.0,74.0,20{\ldots}|  0.0|[-333.42573140269{\ldots}|[0.99999659118712{\ldots}|       0.0|
+|[1.0,89.0,66.0,23{\ldots}|  0.0|[-537.77736461550{\ldots}|[0.72794260819999{\ldots}|       0.0|
+|[1.0,95.0,66.0,13{\ldots}|  0.0|[-419.94009000027{\ldots}|[0.98632919581248{\ldots}|       0.0|
+|[1.0,101.0,50.0,1{\ldots}|  0.0|[-418.12769782653{\ldots}|[0.92458101473041{\ldots}|       0.0|
+|[1.0,109.0,56.0,2{\ldots}|  0.0|[-604.05216987817{\ldots}|[0.00475046122727{\ldots}|       1.0|
+|[1.0,115.0,70.0,3{\ldots}|  1.0|[-639.76679384547{\ldots}|[0.82243219784355{\ldots}|       0.0|
+|[1.0,126.0,56.0,2{\ldots}|  0.0|[-675.05572884516{\ldots}|[0.00121490185273{\ldots}|       1.0|
+|[1.0,163.0,72.0,0{\ldots}|  1.0|[-481.24197102653{\ldots}|[0.99041485445669{\ldots}|       0.0|
+|[2.0,85.0,65.0,0{\ldots}|  0.0|[-373.38413562769{\ldots}|[0.99933714490051{\ldots}|       0.0|
+|[2.0,100.0,66.0,2{\ldots}|  1.0|[-572.78674440437{\ldots}|[0.66969877398212{\ldots}|       0.0|
+|[2.0,110.0,74.0,2{\ldots}|  0.0|[-671.37589458991{\ldots}|[0.29372603707675{\ldots}|       1.0|
+|[3.0,83.0,58.0,31{\ldots}|  0.0|[-457.68905156759{\ldots}|[0.99967549740400{\ldots}|       0.0|
+|[3.0,88.0,58.0,11{\ldots}|  0.0|[-432.71723920739{\ldots}|[0.83926761944996{\ldots}|       0.0|
+|[3.0,128.0,78.0,0{\ldots}|  0.0|[-464.07127210943{\ldots}|[0.99897195376000{\ldots}|       0.0|
+|[3.0,158.0,76.0,3{\ldots}|  1.0|[-939.34332498455{\ldots}|[1.87311685420356{\ldots}|       1.0|
+|[4.0,103.0,60.0,3{\ldots}|  0.0|[-761.19283980910{\ldots}|[2.13987700098319{\ldots}|       1.0|
++--------------------+-----+--------------------+--------------------+----------+
+only showing top 20 rows
+
+
+    \end{Verbatim}
+
+\section{Evalue the modles with AUC and overall
+Accuracy}\label{evalue-the-modles-with-auc-and-overall-accuracy}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}107}]:} \PY{n}{evaluator1} \PY{o}{=} \PY{n}{BinaryClassificationEvaluator}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setMetricName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{areaUnderROC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{evaluator2} \PY{o}{=} \PY{n}{MulticlassClassificationEvaluator}\PY{p}{(}\PY{n}{labelCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{predictionCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metricName}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression: 
+ 	 Area under ROC curve (AUC): 0.5 
+	 Accuracy:  0.6554054054054054
+Naive Bayes: 
+ 	 Area under ROC curve (AUC): 0.29694764503739646 
+	 Accuracy:  0.7027027027027027
+
+    \end{Verbatim}
+
+\section{A simple comparison on the two modles's
+performance}\label{a-simple-comparison-on-the-two-modless-performance}
+
+\subsection{Overall Accuracy:}\label{overall-accuracy}
+
+\begin{itemize}
+\tightlist
+\item
+  Naive Bayes classifier carried out a higher overall accuracy (0.70 vs
+  0.66)
+\item
+  Both modle can yield predictions accuracy than 0.5 of random
+\item
+  So Naive Bayes made better classification over Logistic Regression on
+  this training/test set
+\end{itemize}
+
+\subsection{Area under ROC curve (AUC):}\label{area-under-roc-curve-auc}
+
+\begin{itemize}
+\tightlist
+\item
+  Logistic Regression classifier carried out a higher AUC (0.5 vs 0.3)
+\item
+  Logistic Regression classifier has higher discriminative power over
+  class distribution
+\end{itemize}
+
+\subsection{In summary, on the selected training/test set, Naive Bayes
+classifier has the better result. However, the Logistic Regression
+classifier may be more stable on other
+datasets.}\label{in-summary-on-the-selected-trainingtest-set-naive-bayes-classifier-has-the-better-result.-however-the-logistic-regression-classifier-may-be-more-stable-on-other-datasets.}
+
+\chapter{Question 3 Part 2: Second Dataset with Logistic Regression and
+NaiveBayes
+classification}\label{question-3-part-2-second-dataset-with-logistic-regression-and-naivebayes-classification}
+
+\section{Import required labraries}\label{import-required-labraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}108}]:} \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml} \PY{k}{import} \PY{n}{Pipeline}\PY{p}{,} \PY{n}{PipelineModel}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{clustering} \PY{k}{import} \PY{n}{BisectingKMeans}\PY{p}{,} \PY{n}{KMeans}\PY{p}{,} \PY{n}{GaussianMixture}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{feature} \PY{k}{import} \PY{n}{HashingTF}\PY{p}{,} \PY{n}{Tokenizer}\PY{p}{,} \PY{n}{NGram}\PY{p}{,} \PY{n}{IDF}\PY{p}{,} \PY{n}{StopWordsRemover}
+          \PY{k+kn}{import} \PY{n+nn}{os}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql}\PY{n+nn}{.}\PY{n+nn}{types} \PY{k}{import} \PY{o}{*}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{linalg} \PY{k}{import} \PY{n}{Vectors}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{classification} \PY{k}{import} \PY{n}{LogisticRegression}\PY{p}{,} \PY{n}{NaiveBayes}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{tuning} \PY{k}{import} \PY{n}{ParamGridBuilder}\PY{p}{,} \PY{n}{CrossValidator}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{evaluation} \PY{k}{import} \PY{n}{BinaryClassificationEvaluator}\PY{p}{,} \PY{n}{MulticlassClassificationEvaluator}
+          
+          \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+              \PY{o}{.}\PY{n}{builder} \PYZbs{}
+              \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{dataset2\PYZus{}classification}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Read and Vectorize the raw
+data}\label{read-and-vectorize-the-raw-data}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}109}]:} \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{/Users/vibrioh/local\PYZus{}projects/spark/datasets/ta/set2/australian.dat}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf\PYZhy{}8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{f}\PY{p}{:}
+              \PY{n}{col1} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{n}{col2} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{f}\PY{p}{:}
+                  \PY{n}{parts} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                  \PY{n}{label} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{parts}\PY{p}{[}\PY{n+nb}{len}\PY{p}{(}\PY{n}{parts}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{features} \PY{o}{=} \PY{n}{Vectors}\PY{o}{.}\PY{n}{dense}\PY{p}{(}\PY{p}{[}\PY{n+nb}{float}\PY{p}{(}\PY{n}{parts}\PY{p}{[}\PY{n}{x}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{parts}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+                  \PY{n}{col1}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{label}\PY{p}{)}
+                  \PY{n}{col2}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{features}\PY{p}{)}
+              \PY{n+nb}{dict} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{col1}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{col2}\PY{p}{\PYZcb{}}
+          \PY{n}{pd\PYZus{}d2} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{)}
+          \PY{n}{pd\PYZus{}d2}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}109}]:} <div>
+          <style>
+              .dataframe thead tr:only-child th \{
+                  text-align: right;
+              \}
+          
+              .dataframe thead th \{
+                  text-align: left;
+              \}
+          
+              .dataframe tbody tr th \{
+                  vertical-align: top;
+              \}
+          </style>
+          <table border="1" class="dataframe">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th>features</th>
+                <th>label</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>0</th>
+                <td>[1.0, 22.08, 11.46, 2.0, 4.0, 4.0, 1.585, 0.0,{\ldots}</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <th>1</th>
+                <td>[0.0, 22.67, 7.0, 2.0, 8.0, 4.0, 0.165, 0.0, 0{\ldots}</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>[0.0, 29.58, 1.75, 1.0, 4.0, 4.0, 1.25, 0.0, 0{\ldots}</td>
+                <td>0.0</td>
+              </tr>
+              <tr>
+                <th>3</th>
+                <td>[0.0, 21.67, 11.5, 1.0, 5.0, 3.0, 0.0, 1.0, 1{\ldots}</td>
+                <td>1.0</td>
+              </tr>
+              <tr>
+                <th>4</th>
+                <td>[1.0, 20.17, 8.17, 2.0, 6.0, 4.0, 1.96, 1.0, 1{\ldots}</td>
+                <td>1.0</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}110}]:} \PY{n}{data2} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{createDataFrame}\PY{p}{(}\PY{n}{pd\PYZus{}d2}\PY{p}{)}
+          \PY{n}{data2}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+          \PY{n}{data2}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.27}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- features: vector (nullable = true)
+ |-- label: double (nullable = true)
+
++--------------------+-----+
+|            features|label|
++--------------------+-----+
+|[0.0,21.67,11.5,1{\ldots}|  1.0|
+|[1.0,20.17,8.17,2{\ldots}|  1.0|
+|[0.0,15.83,0.585,{\ldots}|  1.0|
++--------------------+-----+
+only showing top 3 rows
+
+
+    \end{Verbatim}
+
+\section{Split data into Training (80\%) and Test (20\%)
+datasets}\label{split-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}111}]:} \PY{p}{(}\PY{n}{training}\PY{p}{,} \PY{n}{test}\PY{p}{)} \PY{o}{=} \PY{n}{data2}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{,} \PY{n}{seed}\PY{o}{=}\PY{l+m+mi}{23}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Train Logistic Regression and Naive Bayes
+models}\label{train-logistic-regression-and-naive-bayes-models}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}112}]:} \PY{c+c1}{\PYZsh{} create the trainer and set its parameters}
+          \PY{n}{lr} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{n}{maxIter}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{regParam}\PY{o}{=}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{n}{elasticNetParam}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} Fit the model}
+          \PY{n}{lrModel} \PY{o}{=} \PY{n}{lr}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} create the trainer and set its parameters}
+          \PY{n}{nb} \PY{o}{=} \PY{n}{NaiveBayes}\PY{p}{(}\PY{n}{smoothing}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{modelType}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{multinomial}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          
+          \PY{c+c1}{\PYZsh{} train the model}
+          \PY{n}{nbModel} \PY{o}{=} \PY{n}{nb}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Display the predictions}\label{display-the-predictions}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}114}]:} \PY{n}{lrPredictions} \PY{o}{=} \PY{n}{lrModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{lrPredictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+          \PY{n}{nbPredictions} \PY{o}{=} \PY{n}{nbModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{nbPredictions}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression classifier predictions
++--------------------+-----+--------------------+--------------------+----------+
+|            features|label|       rawPrediction|         probability|prediction|
++--------------------+-----+--------------------+--------------------+----------+
+|[0.0,20.42,10.5,1{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[0.0,20.75,10.25,{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,20.75,10.335{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,22.67,7.0,2{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[0.0,24.75,12.5,2{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,30.67,12.0,2{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,32.17,1.46,2{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,35.75,0.915,{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,38.92,1.665,{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[0.0,39.08,4.0,2{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[0.0,47.0,13.0,2{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[0.0,55.75,7.08,2{\ldots}|  0.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[1.0,16.17,0.04,2{\ldots}|  1.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[1.0,19.0,0.0,1.0{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[1.0,20.0,1.25,1{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[1.0,21.5,11.5,2{\ldots}|  0.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[1.0,22.0,0.79,2{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[1.0,22.67,1.585,{\ldots}|  1.0|[-0.1767811960708{\ldots}|[0.45591944020243{\ldots}|       1.0|
+|[1.0,23.08,0.0,2{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
+|[1.0,23.75,0.415,{\ldots}|  0.0|[0.53467906597270{\ldots}|[0.63057376704516{\ldots}|       0.0|
++--------------------+-----+--------------------+--------------------+----------+
+only showing top 20 rows
+
+Naive Bayes classifier predictions
++--------------------+-----+--------------------+--------------------+----------+
+|            features|label|       rawPrediction|         probability|prediction|
++--------------------+-----+--------------------+--------------------+----------+
+|[0.0,20.42,10.5,1{\ldots}|  0.0|[-374.71894703985{\ldots}|[1.0,7.1691492545{\ldots}|       0.0|
+|[0.0,20.75,10.25,{\ldots}|  1.0|[-272.61645936976{\ldots}|[1.0,7.9512154983{\ldots}|       0.0|
+|[0.0,20.75,10.335{\ldots}|  1.0|[-358.18373217373{\ldots}|[1.0,2.7828549813{\ldots}|       0.0|
+|[0.0,22.67,7.0,2{\ldots}|  0.0|[-296.52550073657{\ldots}|[1.0,6.1034404981{\ldots}|       0.0|
+|[0.0,24.75,12.5,2{\ldots}|  1.0|[-882.80205063407{\ldots}|[9.16938606433626{\ldots}|       1.0|
+|[0.0,30.67,12.0,2{\ldots}|  1.0|[-437.66967570185{\ldots}|[1.0,2.3001494432{\ldots}|       0.0|
+|[0.0,32.17,1.46,2{\ldots}|  1.0|[-2172.3166551623{\ldots}|           [0.0,1.0]|       1.0|
+|[0.0,35.75,0.915,{\ldots}|  1.0|[-1569.0382419969{\ldots}|           [0.0,1.0]|       1.0|
+|[0.0,38.92,1.665,{\ldots}|  0.0|[-516.68712024168{\ldots}|[2.85619336654972{\ldots}|       1.0|
+|[0.0,39.08,4.0,2{\ldots}|  0.0|[-590.51320509544{\ldots}|           [1.0,0.0]|       0.0|
+|[0.0,47.0,13.0,2{\ldots}|  1.0|[-361.69906371960{\ldots}|[1.0,4.2718077713{\ldots}|       0.0|
+|[0.0,55.75,7.08,2{\ldots}|  0.0|[-465.09686661564{\ldots}|[1.0,3.1852541001{\ldots}|       0.0|
+|[1.0,16.17,0.04,2{\ldots}|  1.0|[-127.34207448934{\ldots}|[1.0,1.2049030087{\ldots}|       0.0|
+|[1.0,19.0,0.0,1.0{\ldots}|  0.0|[-154.55466029514{\ldots}|[1.0,2.9832451582{\ldots}|       0.0|
+|[1.0,20.0,1.25,1{\ldots}|  0.0|[-232.95891654432{\ldots}|[1.0,1.7522842178{\ldots}|       0.0|
+|[1.0,21.5,11.5,2{\ldots}|  0.0|[-328.39292616749{\ldots}|[1.0,1.4690448845{\ldots}|       0.0|
+|[1.0,22.0,0.79,2{\ldots}|  0.0|[-733.32230070910{\ldots}|[1.0,1.8294086996{\ldots}|       0.0|
+|[1.0,22.67,1.585,{\ldots}|  1.0|[-285.51305623302{\ldots}|[1.0,4.5883044328{\ldots}|       0.0|
+|[1.0,23.08,0.0,2{\ldots}|  0.0|[-208.73577776562{\ldots}|[1.0,6.0553106679{\ldots}|       0.0|
+|[1.0,23.75,0.415,{\ldots}|  0.0|[-268.99747875558{\ldots}|[1.0,3.0571078699{\ldots}|       0.0|
++--------------------+-----+--------------------+--------------------+----------+
+only showing top 20 rows
+
+
+    \end{Verbatim}
+
+\section{Evalue the modles with AUC and overall
+Accuracy}\label{evalue-the-modles-with-auc-and-overall-accuracy}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}116}]:} \PY{n}{evaluator1} \PY{o}{=} \PY{n}{BinaryClassificationEvaluator}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setMetricName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{areaUnderROC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{evaluator2} \PY{o}{=} \PY{n}{MulticlassClassificationEvaluator}\PY{p}{(}\PY{n}{labelCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{predictionCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metricName}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression: 
+ 	 Area under ROC curve (AUC): 0.8758116883116883 
+	 Accuracy:  0.8646616541353384
+Naive Bayes: 
+ 	 Area under ROC curve (AUC): 0.3773191094619667 
+	 Accuracy:  0.631578947368421
+
+    \end{Verbatim}
+
+\section{A simple comparison on the two modles's
+performance}\label{a-simple-comparison-on-the-two-modless-performance}
+
+\subsection{Overall Accuracy:}\label{overall-accuracy}
+
+\begin{itemize}
+\tightlist
+\item
+  Logistic Regression classifier carried out a higher overall accuracy
+  (0.86 vs 0.63)
+\item
+  Both modle can yield predictions accuracy than 0.5 of random
+\item
+  So Logistic Regression made better classification over Naive Bayes on
+  this training/test set
+\end{itemize}
+
+\subsection{Area under ROC curve (AUC):}\label{area-under-roc-curve-auc}
+
+\begin{itemize}
+\tightlist
+\item
+  Logistic Regression classifier carried out a higher AUC (0.88 vs 0.38)
+\item
+  Logistic Regression classifier has higher discriminative power over
+  class distribution
+\end{itemize}
+
+\subsection{In summary, the Logistic Regression classifier has much
+better performance over the Naive Bayes, whatever on this perticular
+training/test set or potential future test
+datasets.}\label{in-summary-the-logistic-regression-classifier-has-much-better-performance-over-the-naive-bayes-whatever-on-this-perticular-trainingtest-set-or-potential-future-test-datasets.}
+
+\chapter{Question 3 Part 3: Wikipedia Dataset with Logistic Regression
+and NaiveBayes
+classification}\label{question-3-part-3-wikipedia-dataset-with-logistic-regression-and-naivebayes-classification}
+
+\section{Import required labraries}\label{import-required-labraries}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}117}]:} \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml} \PY{k}{import} \PY{n}{Pipeline}\PY{p}{,} \PY{n}{PipelineModel}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{clustering} \PY{k}{import} \PY{n}{BisectingKMeans}\PY{p}{,} \PY{n}{KMeans}\PY{p}{,} \PY{n}{GaussianMixture}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{feature} \PY{k}{import} \PY{n}{HashingTF}\PY{p}{,} \PY{n}{Tokenizer}\PY{p}{,} \PY{n}{NGram}\PY{p}{,} \PY{n}{IDF}\PY{p}{,} \PY{n}{StopWordsRemover}
+          \PY{k+kn}{import} \PY{n+nn}{os}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{SparkSession}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql}\PY{n+nn}{.}\PY{n+nn}{types} \PY{k}{import} \PY{o}{*}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{sql} \PY{k}{import} \PY{n}{Row}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{linalg} \PY{k}{import} \PY{n}{Vectors}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{classification} \PY{k}{import} \PY{n}{LogisticRegression}\PY{p}{,} \PY{n}{NaiveBayes}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{tuning} \PY{k}{import} \PY{n}{ParamGridBuilder}\PY{p}{,} \PY{n}{CrossValidator}
+          \PY{k+kn}{from} \PY{n+nn}{pyspark}\PY{n+nn}{.}\PY{n+nn}{ml}\PY{n+nn}{.}\PY{n+nn}{evaluation} \PY{k}{import} \PY{n}{BinaryClassificationEvaluator}\PY{p}{,} \PY{n}{MulticlassClassificationEvaluator}
+          
+          \PY{n}{spark} \PY{o}{=} \PY{n}{SparkSession} \PYZbs{}
+              \PY{o}{.}\PY{n}{builder} \PYZbs{}
+              \PY{o}{.}\PY{n}{appName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{wikipedia\PYZus{}classification}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{config}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{spark.som.config.option}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{some\PYZhy{}value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PYZbs{}
+              \PY{o}{.}\PY{n}{getOrCreate}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Read the raw data and assigne lables with clustering results by
+K-MEANS}\label{read-the-raw-data-and-assigne-lables-with-clustering-results-by-k-means}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}120}]:} \PY{n}{wikiDF} \PY{o}{=} \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, title, text, prediction as assignedLable FROM predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{}print schema}
+          \PY{n}{wikiDF}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+          \PY{n}{wikiDF}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{wikiDF}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{wikiDF}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+          \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT count(*) FROM wikiDF GROUP BY assignedLable}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- id: string (nullable = true)
+ |-- title: string (nullable = true)
+ |-- text: string (nullable = true)
+ |-- assignedLable: integer (nullable = true)
+
++-------+------------------+--------------------+-------------+
+|     id|             title|                text|assignedLable|
++-------+------------------+--------------------+-------------+
+|7697605|Konica Minolta Cup|Konica Minolta Cu{\ldots}|            0|
+|7697611| Archer (typeface)|Archer (typeface){\ldots}|            0|
++-------+------------------+--------------------+-------------+
+only showing top 2 rows
+
++--------+
+|count(1)|
++--------+
+|     154|
+|    4423|
++--------+
+
+
+    \end{Verbatim}
+
+\section{Cast assigned lables to double and store to
+DataFrame}\label{cast-assigned-lables-to-double-and-store-to-dataframe}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}121}]:} \PY{n}{wikiDF} \PY{o}{=} \PY{n}{wikiDF}\PY{o}{.}\PY{n}{withColumn}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{wikiDF}\PY{o}{.}\PY{n}{assignedLable}\PY{o}{.}\PY{n}{cast}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{double}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+          \PY{n}{wikiDF}\PY{o}{.}\PY{n}{printSchema}\PY{p}{(}\PY{p}{)}
+          \PY{n}{wikiDF}\PY{o}{.}\PY{n}{sample}\PY{p}{(}\PY{k+kc}{False}\PY{p}{,} \PY{l+m+mf}{0.23}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+root
+ |-- id: string (nullable = true)
+ |-- title: string (nullable = true)
+ |-- text: string (nullable = true)
+ |-- assignedLable: integer (nullable = true)
+ |-- label: double (nullable = true)
+
++-------+--------------------+--------------------+-------------+-----+
+|     id|               title|                text|assignedLable|label|
++-------+--------------------+--------------------+-------------+-----+
+|7697715|Anti-submarine mi{\ldots}|Anti-submarine mi{\ldots}|            0|  0.0|
+|7697725|Northern river shark|Northern river sh{\ldots}|            0|  0.0|
++-------+--------------------+--------------------+-------------+-----+
+only showing top 2 rows
+
+
+    \end{Verbatim}
+
+\section{Split data into Training (80\%) and Test (20\%)
+datasets}\label{split-data-into-training-80-and-test-20-datasets}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}123}]:} \PY{n}{training}\PY{p}{,} \PY{n}{test} \PY{o}{=} \PY{n}{wikiDF}\PY{o}{.}\PY{n}{randomSplit}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2388}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Total document count:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{wikiDF}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Training\PYZhy{}set count:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{training}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Test\PYZhy{}set count:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{test}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Total document count: 4577
+Training-set count: 3645
+Test-set count: 932
+
+    \end{Verbatim}
+
+\section{Config the pipeines for Logistic Regression and Naive
+Bayes}\label{config-the-pipeines-for-logistic-regression-and-naive-bayes}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}124}]:} \PY{n}{tokenizer} \PY{o}{=} \PY{n}{Tokenizer}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setInputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{text}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setOutputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{words}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{remover}\PY{o}{=} \PY{n}{StopWordsRemover}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setInputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{words}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setOutputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{filtered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setCaseSensitive}\PY{p}{(}\PY{k+kc}{False}\PY{p}{)}
+          \PY{n}{hashingTF} \PY{o}{=} \PY{n}{HashingTF}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setNumFeatures}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{.}\PY{n}{setInputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{filtered}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setOutputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rawFeatures}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{idf} \PY{o}{=} \PY{n}{IDF}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setInputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{rawFeatures}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setOutputCol}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setMinDocFreq}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+          \PY{n}{lr} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setRegParam}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{o}{.}\PY{n}{setThreshold}\PY{p}{(}\PY{l+m+mf}{0.5}\PY{p}{)}
+          \PY{n}{nb} \PY{o}{=} \PY{n}{NaiveBayes}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setModelType}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{multinomial}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{setSmoothing}\PY{p}{(}\PY{l+m+mf}{1.0}\PY{p}{)}
+          \PY{n}{lrPipeline}\PY{o}{=}\PY{n}{Pipeline}\PY{p}{(}\PY{n}{stages}\PY{o}{=}\PY{p}{[}\PY{n}{tokenizer}\PY{p}{,} \PY{n}{remover}\PY{p}{,} \PY{n}{hashingTF}\PY{p}{,} \PY{n}{idf}\PY{p}{,} \PY{n}{lr}\PY{p}{]}\PY{p}{)}
+          \PY{n}{nbPipeline}\PY{o}{=}\PY{n}{Pipeline}\PY{p}{(}\PY{n}{stages}\PY{o}{=}\PY{p}{[}\PY{n}{tokenizer}\PY{p}{,} \PY{n}{remover}\PY{p}{,} \PY{n}{hashingTF}\PY{p}{,} \PY{n}{idf}\PY{p}{,} \PY{n}{nb}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Train Logistic Regression and Naive Bayes
+models}\label{train-logistic-regression-and-naive-bayes-models}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}125}]:} \PY{n}{lrModel} \PY{o}{=} \PY{n}{lrPipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+          \PY{n}{nbModel} \PY{o}{=} \PY{n}{nbPipeline}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{training}\PY{p}{)}
+\end{Verbatim}
+
+
+\section{Display predictions on the test
+data}\label{display-predictions-on-the-test-data}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}127}]:} \PY{n}{lrPredictions} \PY{o}{=} \PY{n}{lrModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n}{lrPredictions}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{lrPredictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, label, prediction FROM lrPredictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{0}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+          \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, label, prediction FROM lrPredictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{1}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+          \PY{n}{nbPredictions} \PY{o}{=} \PY{n}{nbModel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{test}\PY{p}{)}
+          \PY{n}{nbPredictions}\PY{o}{.}\PY{n}{registerTempTable}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{nbPredictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes classifier predictions}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, label, prediction FROM nbPredictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{0}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+          \PY{n}{spark}\PY{o}{.}\PY{n}{sql}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT id, label, prediction FROM nbPredictions WHERE prediction = }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{1}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression classifier predictions
++-------+-----+----------+
+|     id|label|prediction|
++-------+-----+----------+
+|7697757|  0.0|       0.0|
+|7697782|  0.0|       0.0|
+|7697786|  0.0|       0.0|
+|7697794|  0.0|       0.0|
+|7697805|  0.0|       0.0|
++-------+-----+----------+
+only showing top 5 rows
+
++-------+-----+----------+
+|     id|label|prediction|
++-------+-----+----------+
+|7698941|  1.0|       1.0|
+|7701470|  1.0|       1.0|
+|7703762|  1.0|       1.0|
+|7705039|  1.0|       1.0|
+|7705856|  1.0|       1.0|
++-------+-----+----------+
+only showing top 5 rows
+
+Naive Bayes classifier predictions
++-------+-----+----------+
+|     id|label|prediction|
++-------+-----+----------+
+|7697757|  0.0|       0.0|
+|7697782|  0.0|       0.0|
+|7697786|  0.0|       0.0|
+|7697794|  0.0|       0.0|
+|7697808|  0.0|       0.0|
++-------+-----+----------+
+only showing top 5 rows
+
++-------+-----+----------+
+|     id|label|prediction|
++-------+-----+----------+
+|7697805|  0.0|       1.0|
+|7698625|  0.0|       1.0|
+|7699045|  0.0|       1.0|
+|7699145|  0.0|       1.0|
+|7699710|  0.0|       1.0|
++-------+-----+----------+
+only showing top 5 rows
+
+
+    \end{Verbatim}
+
+\section{Evaluate the models with Area under ROC curve (AUC) and overall
+Accuracy}\label{evaluate-the-models-with-area-under-roc-curve-auc-and-overall-accuracy}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}128}]:} \PY{n}{evaluator1} \PY{o}{=} \PY{n}{BinaryClassificationEvaluator}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{setMetricName}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{areaUnderROC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n}{evaluator2} \PY{o}{=} \PY{n}{MulticlassClassificationEvaluator}\PY{p}{(}\PY{n}{labelCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{label}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{predictionCol}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{prediction}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{metricName}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{accuracy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Logistic Regression: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{lrPredictions}\PY{p}{)}\PY{p}{)}
+          \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Naive Bayes: }\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Area under ROC curve (AUC):}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s2}{ Accuracy: }\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{evaluator2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{nbPredictions}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Logistic Regression: 
+ 	 Area under ROC curve (AUC): 0.9990286117979512 
+	 Accuracy:  0.9924892703862661
+Naive Bayes: 
+ 	 Area under ROC curve (AUC): 0.00029436006122689424 
+	 Accuracy:  0.8594420600858369
+
+    \end{Verbatim}
+
+\section{A simple comparison on the two modles's
+performance}\label{a-simple-comparison-on-the-two-modless-performance}
+
+\subsection{Overall Accuracy:}\label{overall-accuracy}
+
+\begin{itemize}
+\tightlist
+\item
+  lables are assigned by K-MEANS clustering, so overall accuracy was
+  very high
+\item
+  Logistic Regression classifier carried out a higher overall accuracy
+  (0.99 vs 0.86)
+\item
+  Both modle can yield predictions accuracy than 0.5 of random
+\item
+  So Logistic Regression made better classification over Naive Bayes on
+  this training/test set
+\end{itemize}
+
+\subsection{Area under ROC curve (AUC):}\label{area-under-roc-curve-auc}
+
+\begin{itemize}
+\tightlist
+\item
+  Logistic Regression classifier carried out a much higher AUC (0.85 vs
+  0.00)
+\item
+  Logistic Regression classifier has higher discriminative power over
+  class distribution
+\end{itemize}
+
+\subsection{In summary, the Logistic Regression classifier has much
+better performance over the Naive Bayes, whatever on this perticular
+training/test set or potential future test
+datasets.}\label{in-summary-the-logistic-regression-classifier-has-much-better-performance-over-the-naive-bayes-whatever-on-this-perticular-trainingtest-set-or-potential-future-test-datasets.}
+
+\subsection{\texorpdfstring{\textbf{In our raw data showed at the
+beginning, one class had much more data points (4423) than the other
+class (154). This bias significantly affected Naive Bayes classifier
+-\/- it had very hight error costs (false positive and false negative
+cost), but not the Logistic Regression classifier. So in our experiment,
+at least we can conclude that under this kind of bias, we should avoid
+using Naive Bayes
+classifier.}}{In our raw data showed at the beginning, one class had much more data points (4423) than the other class (154). This bias significantly affected Naive Bayes classifier -\/- it had very hight error costs (false positive and false negative cost), but not the Logistic Regression classifier. So in our experiment, at least we can conclude that under this kind of bias, we should avoid using Naive Bayes classifier.}}\label{in-our-raw-data-showed-at-the-beginning-one-class-had-much-more-data-points-4423-than-the-other-class-154.-this-bias-significantly-affected-naive-bayes-classifier----it-had-very-hight-error-costs-false-positive-and-false-negative-cost-but-not-the-logistic-regression-classifier.-so-in-our-experiment-at-least-we-can-conclude-that-under-this-kind-of-bias-we-should-avoid-using-naive-bayes-classifier.}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}

@@ -1,0 +1,83 @@
+\contentsline {chapter}{\numberline {1}Question 1 Part 1: Building an Explicit Movie Recommendation System with Spark MLlib}{4}{chapter.1}
+\contentsline {section}{\numberline {1.1}Import required libraries}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Download/Unzip the MovieLens 1M dataset from http://grouplens.org/datasets/movielens}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Read and Convert ratings data to a DataFrame}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Show the number of ratings in the dataset}{5}{section.1.4}
+\contentsline {section}{\numberline {1.5}Show a sample of the Ratings DataFrame}{5}{section.1.5}
+\contentsline {section}{\numberline {1.6}Show sample number of ratings per user}{5}{section.1.6}
+\contentsline {section}{\numberline {1.7}Show the number of users in the dataset}{6}{section.1.7}
+\contentsline {section}{\numberline {1.8}Split Ratings data into Training (80\%) and Test (20\%) datasets}{6}{section.1.8}
+\contentsline {section}{\numberline {1.9}Show resulting Ratings dataset counts}{6}{section.1.9}
+\contentsline {section}{\numberline {1.10}Build the recommendation model on the training data using ALS-explicit}{6}{section.1.10}
+\contentsline {section}{\numberline {1.11}Run the model against the Test data and show a sample of the predictions}{6}{section.1.11}
+\contentsline {section}{\numberline {1.12}Evaluate the model by computing the RMSE on the test data}{7}{section.1.12}
+\contentsline {section}{\numberline {1.13}Show that a smaller value of rmse is better}{7}{section.1.13}
+\contentsline {section}{\numberline {1.14}Make movie recommendations}{7}{section.1.14}
+\contentsline {section}{\numberline {1.15}Show sample recommendations per user}{7}{section.1.15}
+\contentsline {section}{\numberline {1.16}Show sample recommendations per user}{8}{section.1.16}
+\contentsline {chapter}{\numberline {2}Question 1 Part 2: Building an Implicit Music Recommendation System with Spark MLlib}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Import required libraries}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Download/Unzip Audioscrobbler dataset from http://www.iro.umontreal.ca/\textasciitilde {}lisa/datasets/profiledata\_06-May-2005.tar.gz}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Read and Convert ratings data to a DataFrame}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Show the number of userArtist in the dataset}{10}{section.2.4}
+\contentsline {section}{\numberline {2.5}Show a sample of the userArtist DataFrame}{10}{section.2.5}
+\contentsline {section}{\numberline {2.6}Split userArtist data into Training (80\%) and Test (20\%) datasets}{10}{section.2.6}
+\contentsline {section}{\numberline {2.7}Show resulting userArtist dataset counts}{10}{section.2.7}
+\contentsline {section}{\numberline {2.8}Build the recommendation model on the training data using ALS-implicit}{10}{section.2.8}
+\contentsline {section}{\numberline {2.9}Save and load model}{11}{section.2.9}
+\contentsline {section}{\numberline {2.10}Run the model against the Test data and show a sample of the predictions}{11}{section.2.10}
+\contentsline {section}{\numberline {2.11}Show recommendations high and low}{11}{section.2.11}
+\contentsline {chapter}{\numberline {3}Question 2 Part 1: Clustering on News Articles}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}Download news articles from: https://www.kaggle.com/asad1m9a9h6mood/news-articles}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}This Dataset is scraped from https://www.thenews.com.pk website. It has news articles from 2015 till date related to business and sports. It Contains the Heading of the particular Article, Its content and its date. The content also contains the place from where the statement or Article was published.}{13}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Import required libraries}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Explore the dataset in Pandas}{13}{section.3.3}
+\contentsline {section}{\numberline {3.4}Split data into Training (80\%) and Test (20\%) datasets}{16}{section.3.4}
+\contentsline {section}{\numberline {3.5}Configure an ML pipeline}{16}{section.3.5}
+\contentsline {section}{\numberline {3.6}Clustering by K-MEANS}{16}{section.3.6}
+\contentsline {section}{\numberline {3.7}Make predictions on test and print interested columns of different clusters}{17}{section.3.7}
+\contentsline {chapter}{\numberline {4}Question 2 Part 2: Clustering on Wikipedia articles}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Import required libraries}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Download/Unzip https://dumps.wikimedia.org/enwiki/20170920/enwiki-20170920-pages-articles14.xml-p7697599p7744799.bz2}{18}{section.4.2}
+\contentsline {section}{\numberline {4.3}Parse xml to json using WikiExtractorw (https://github.com/attardi/wikiextractor)}{18}{section.4.3}
+\contentsline {section}{\numberline {4.4}Explore the dataset in Pandas}{18}{section.4.4}
+\contentsline {section}{\numberline {4.5}Split data into Training (80\%) and Test (20\%) datasets}{21}{section.4.5}
+\contentsline {section}{\numberline {4.6}Configure an ML pipeline}{21}{section.4.6}
+\contentsline {section}{\numberline {4.7}Clustering by K-MEANS}{22}{section.4.7}
+\contentsline {section}{\numberline {4.8}Make predictions on test and print interested columns of different clusters}{22}{section.4.8}
+\contentsline {chapter}{\numberline {5}Question 3 Part 1: Fist Dataset with Logistic Regression and NaiveBayes classification}{24}{chapter.5}
+\contentsline {section}{\numberline {5.1}Import required labraries}{24}{section.5.1}
+\contentsline {section}{\numberline {5.2}Read and Vectorize the raw data}{24}{section.5.2}
+\contentsline {section}{\numberline {5.3}Split data into Training (80\%) and Test (20\%) datasets}{26}{section.5.3}
+\contentsline {section}{\numberline {5.4}Train Logistic Regression and Naive Bayes models}{26}{section.5.4}
+\contentsline {section}{\numberline {5.5}Display the predictions}{26}{section.5.5}
+\contentsline {section}{\numberline {5.6}Evalue the modles with AUC and overall Accuracy}{28}{section.5.6}
+\contentsline {section}{\numberline {5.7}A simple comparison on the two modles's performance}{28}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Overall Accuracy:}{28}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Area under ROC curve (AUC):}{28}{subsection.5.7.2}
+\contentsline {subsection}{\numberline {5.7.3}In summary, on the selected training/test set, Naive Bayes classifier has the better result. However, the Logistic Regression classifier may be more stable on other datasets.}{28}{subsection.5.7.3}
+\contentsline {chapter}{\numberline {6}Question 3 Part 2: Second Dataset with Logistic Regression and NaiveBayes classification}{29}{chapter.6}
+\contentsline {section}{\numberline {6.1}Import required labraries}{29}{section.6.1}
+\contentsline {section}{\numberline {6.2}Read and Vectorize the raw data}{29}{section.6.2}
+\contentsline {section}{\numberline {6.3}Split data into Training (80\%) and Test (20\%) datasets}{31}{section.6.3}
+\contentsline {section}{\numberline {6.4}Train Logistic Regression and Naive Bayes models}{31}{section.6.4}
+\contentsline {section}{\numberline {6.5}Display the predictions}{31}{section.6.5}
+\contentsline {section}{\numberline {6.6}Evalue the modles with AUC and overall Accuracy}{33}{section.6.6}
+\contentsline {section}{\numberline {6.7}A simple comparison on the two modles's performance}{33}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Overall Accuracy:}{33}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Area under ROC curve (AUC):}{33}{subsection.6.7.2}
+\contentsline {subsection}{\numberline {6.7.3}In summary, the Logistic Regression classifier has much better performance over the Naive Bayes, whatever on this perticular training/test set or potential future test datasets.}{33}{subsection.6.7.3}
+\contentsline {chapter}{\numberline {7}Question 3 Part 3: Wikipedia Dataset with Logistic Regression and NaiveBayes classification}{34}{chapter.7}
+\contentsline {section}{\numberline {7.1}Import required labraries}{34}{section.7.1}
+\contentsline {section}{\numberline {7.2}Read the raw data and assigne lables with clustering results by K-MEANS}{34}{section.7.2}
+\contentsline {section}{\numberline {7.3}Cast assigned lables to double and store to DataFrame}{35}{section.7.3}
+\contentsline {section}{\numberline {7.4}Split data into Training (80\%) and Test (20\%) datasets}{35}{section.7.4}
+\contentsline {section}{\numberline {7.5}Config the pipeines for Logistic Regression and Naive Bayes}{36}{section.7.5}
+\contentsline {section}{\numberline {7.6}Train Logistic Regression and Naive Bayes models}{36}{section.7.6}
+\contentsline {section}{\numberline {7.7}Display predictions on the test data}{36}{section.7.7}
+\contentsline {section}{\numberline {7.8}Evaluate the models with Area under ROC curve (AUC) and overall Accuracy}{37}{section.7.8}
+\contentsline {section}{\numberline {7.9}A simple comparison on the two modles's performance}{37}{section.7.9}
+\contentsline {subsection}{\numberline {7.9.1}Overall Accuracy:}{37}{subsection.7.9.1}
+\contentsline {subsection}{\numberline {7.9.2}Area under ROC curve (AUC):}{38}{subsection.7.9.2}
+\contentsline {subsection}{\numberline {7.9.3}In summary, the Logistic Regression classifier has much better performance over the Naive Bayes, whatever on this perticular training/test set or potential future test datasets.}{38}{subsection.7.9.3}
+\contentsline {subsection}{\numberline {7.9.4}\textbf {In our raw data showed at the beginning, one class had much more data points (4423) than the other class (154). This bias significantly affected Naive Bayes classifier -\/- it had very hight error costs (false positive and false negative cost), but not the Logistic Regression classifier. So in our experiment, at least we can conclude that under this kind of bias, we should avoid using Naive Bayes classifier.}}{38}{subsection.7.9.4}
