@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b6e891-9b45-4bbf-81fb-3a467a4daa77" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WikiExtractor.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/down_1.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hw2_demo/wiki_parser.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.aux" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.synctex.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/explicit_recommendation.tex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/exportToHTML/explicit_recommendation.ipynb.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ml-1m.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ml-1m.zip.1" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" afterPath="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,29 +24,7 @@
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mllib.ipynb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mllib.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bitcoin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
-              <folding>
-                <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,7 +70,9 @@
         <option value="$PROJECT_DIR$/hw2_demo/wiki_parser.py" />
         <option value="$PROJECT_DIR$/hw2_demo/WikiExtractor.py" />
         <option value="$PROJECT_DIR$/hw2_demo/hw2_Q2_demo.ipynb" />
+        <option value="$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb" />
         <option value="$PROJECT_DIR$/mllib.ipynb" />
+        <option value="$PROJECT_DIR$/convert_latex.sh" />
       </list>
     </option>
   </component>
@@ -196,26 +160,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.wiki_parser">
-    <configuration default="false" name="dataset2tags" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="spark" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/save_tables/dataset2tags.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Bash.convert_latex.sh">
     <configuration default="false" name="dataset3taxi" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -284,6 +229,17 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="convert_latex.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="bash" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/env" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/convert_latex.sh" />
+      <option name="PARAMETERS" value="" />
+      <module name="spark" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
@@ -446,19 +402,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.dataset2tags" />
-      <item index="1" class="java.lang.String" itemvalue="Python.dataset3taxi" />
-      <item index="2" class="java.lang.String" itemvalue="Python.airlines" />
-      <item index="3" class="java.lang.String" itemvalue="Bash.get_data.sh" />
-      <item index="4" class="java.lang.String" itemvalue="Python.wiki_parser" />
+      <item index="0" class="java.lang.String" itemvalue="Python.dataset3taxi" />
+      <item index="1" class="java.lang.String" itemvalue="Python.airlines" />
+      <item index="2" class="java.lang.String" itemvalue="Bash.get_data.sh" />
+      <item index="3" class="java.lang.String" itemvalue="Python.wiki_parser" />
+      <item index="4" class="java.lang.String" itemvalue="Bash.convert_latex.sh" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.wiki_parser" />
-        <item index="1" class="java.lang.String" itemvalue="Bash.get_data.sh" />
-        <item index="2" class="java.lang.String" itemvalue="Python.airlines" />
-        <item index="3" class="java.lang.String" itemvalue="Python.dataset3taxi" />
-        <item index="4" class="java.lang.String" itemvalue="Python.dataset2tags" />
+        <item index="0" class="java.lang.String" itemvalue="Bash.convert_latex.sh" />
+        <item index="1" class="java.lang.String" itemvalue="Python.wiki_parser" />
+        <item index="2" class="java.lang.String" itemvalue="Bash.get_data.sh" />
+        <item index="3" class="java.lang.String" itemvalue="Python.airlines" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dataset3taxi" />
       </list>
     </recent_temporary>
   </component>
@@ -529,23 +485,51 @@
       <option name="project" value="LOCAL" />
       <updated>1507437884429</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implicit ALS / k-means">
+      <created>1507524870778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1507524870778</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test recommendation, clustering and classification">
+      <created>1507598645846</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1507598645846</updated>
+    </task>
+    <task id="LOCAL-00011" summary="delete">
+      <created>1507855670556</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1507855670556</updated>
+    </task>
+    <task id="LOCAL-00012" summary="delete">
+      <created>1507855842299</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1507855842299</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22532189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22317597" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26647967" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23373494" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22891566" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -569,25 +553,101 @@
     <MESSAGE value="bitcoins" />
     <MESSAGE value="in folder" />
     <MESSAGE value="explict ALS" />
-    <option name="LAST_COMMIT_MESSAGE" value="explict ALS" />
+    <MESSAGE value="implicit ALS / k-means" />
+    <MESSAGE value="test recommendation, clustering and classification" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb">
+    <entry file="file://$PROJECT_DIR$/mllib.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="-1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/Text+Classification+10.19.2016.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mllib.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/Text+Classification+10.19.2016.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mllib.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb" />
     <entry file="file://$PROJECT_DIR$/get_data.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,9 +655,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="16" />
-          <folding>
-            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -605,10 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
-            <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -616,9 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -626,7 +677,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,10 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
-            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,9 +691,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="44" />
-          <folding>
-            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="497" lean-forward="true" selection-start-line="3" selection-start-column="497" selection-end-line="3" selection-end-column="570" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,10 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="32" selection-end-column="65" />
-          <folding>
-            <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
-            <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,9 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -699,10 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding>
-            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
-            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -710,10 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="32" selection-end-column="65" />
-          <folding>
-            <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
-            <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -721,9 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,10 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
           <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding>
-            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
-            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -750,10 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
-            <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,7 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,10 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <marker date="1506823163000" expanded="true" signature="2054:2083" ph="select ArrDe... airlines" />
-            <marker date="1506823163000" expanded="true" signature="2136:2165" ph="select DepDe... airlines" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -787,10 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <marker date="1506808689000" expanded="true" signature="1460:1467" ph="SELECT name,... gwcdr_tmp" />
-            <marker date="1506808689000" expanded="true" signature="1460:1482" ph="SELECT name,... dataset1" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="20" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -821,47 +825,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1506740951000" expanded="true" signature="733:751" ph="SELECT * FRO... tags" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/implicit_recommendation.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="-1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
-          <folding>
-            <marker date="1506827018000" expanded="true" signature="1265:1343" ph="select year " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/explicit_recommendation.ipynb" />
+    <entry file="file://$PROJECT_DIR$/implicit_recommendation.ipynb" />
     <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q1_demo.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
           <selected id="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
         </state>
       </provider>
     </entry>
@@ -876,9 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-          <folding>
-            <element signature="e#204#241#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,9 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
           <caret line="3222" column="47" lean-forward="false" selection-start-line="3222" selection-start-column="47" selection-end-line="3222" selection-end-column="47" />
-          <folding>
-            <element signature="e#2093#2142#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -899,10 +865,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_data_clean_text_vectorization_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/Text+Classification+10.19.2016.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mllib.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
-          <selected id="91" />
+          <selected id="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_tables/bitcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="24" lean-forward="false" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/convert_latex.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="58" lean-forward="true" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw2_demo/hw2_Q3_demo.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="13" />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,0 @@
-index int, id-from string, id-to string, username_from string, username_to string, gender_from string, gender_to string, amount float, month int, day int, year int
-
-bitcoins';
-create table bitcoins(index int, id-from string, id-to string, username_from string, username_to string, gender_from string, gender_to string, amount float, month int, day int, year int) stored as parquet location 'hdfs://localhost:9000/user/vibrioh/parquet/
